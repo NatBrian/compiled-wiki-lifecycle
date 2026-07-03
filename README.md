@@ -2,7 +2,7 @@
 
 Research and reproduction code for **"The Compiled-Wiki Lifecycle: Certified Compilation, Maintenance, and Retraction for Evolving Corpora"** — a study of what an LLM-compiled knowledge store (a "wiki" an LLM writes and rewrites, in the pattern popularized by [Karpathy](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)) needs beyond a good initial compile: a way to know it's still current, a way to update it without silently destroying what it knows, and a way to remove something from it that must go.
 
-**Paper**: [`paper/main.tex`](paper/main.tex) ([build instructions](#building-the-paper)) — one paper, four stages, each independently validated.
+**Paper**: [`paper/main.pdf`](paper/main.pdf) ([build instructions](#building-the-paper)) — one paper, four stages, each independently validated.
 
 ## The four-stage lifecycle
 
