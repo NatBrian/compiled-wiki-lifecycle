@@ -1,0 +1,7 @@
+{
+  "tpr_onedoc_compiled_lowerbound": 0.75,
+  "tpr_raw_single": 0.8,
+  "assumption_safe": true,
+  "n": 40,
+  "note": "r = TPR_style*survival <= TPR_style; safe if r >= raw TPR (within noise)"
+}

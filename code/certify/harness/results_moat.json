@@ -1,0 +1,1311 @@
+{
+  "config": {
+    "data": "../benchmarks/scifact-open/data",
+    "corpus": "corpus_candidates.jsonl",
+    "N": 500,
+    "n_claims": 20,
+    "k_rag": 5,
+    "seed": 0,
+    "max_workers": 4,
+    "out": "results_moat.json"
+  },
+  "summary": {
+    "natural": {
+      "rag": {
+        "false_absence_rate": 0.25,
+        "avg_query_ctx_tokens": 1556.0,
+        "n": 20
+      },
+      "scan_raw": {
+        "false_absence_rate": 0.25,
+        "avg_query_ctx_tokens": 52026.0,
+        "n": 20
+      },
+      "scan_card": {
+        "false_absence_rate": 0.05,
+        "avg_query_ctx_tokens": 38750.0,
+        "n": 20
+      }
+    },
+    "adversarial": {
+      "rag": {
+        "false_absence_rate": 0.55,
+        "avg_query_ctx_tokens": 1507.0,
+        "n": 20
+      },
+      "scan_raw": {
+        "false_absence_rate": 0.35,
+        "avg_query_ctx_tokens": 52026.0,
+        "n": 20
+      },
+      "scan_card": {
+        "false_absence_rate": 0.05,
+        "avg_query_ctx_tokens": 39616.0,
+        "n": 20
+      }
+    },
+    "overlap_before": 0.047,
+    "overlap_after": 0.022,
+    "N": 500,
+    "n_claims": 20,
+    "llm_calls": 3012
+  },
+  "per_claim": {
+    "natural": {
+      "rag": [
+        {
+          "label": "NEI",
+          "n_ctx": 1504,
+          "retrieved": [
+            6431384,
+            15238917,
+            774605,
+            4739372,
+            12000227
+          ],
+          "false_absence": 1,
+          "claim_id": 1285
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1606,
+          "retrieved": [
+            17307849,
+            12642142,
+            37156706,
+            4640258,
+            31038121
+          ],
+          "false_absence": 0,
+          "claim_id": 809
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1595,
+          "retrieved": [
+            6227220,
+            10120330,
+            9766637,
+            52805891,
+            18182149
+          ],
+          "false_absence": 0,
+          "claim_id": 150
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1590,
+          "retrieved": [
+            9623906,
+            34399427,
+            18294147,
+            23094176,
+            9286357
+          ],
+          "false_absence": 0,
+          "claim_id": 872
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1604,
+          "retrieved": [
+            4456756,
+            22141221,
+            14886763,
+            15069043,
+            14104985
+          ],
+          "false_absence": 1,
+          "claim_id": 1123
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1568,
+          "retrieved": [
+            9580772,
+            10212612,
+            4456756,
+            205880951,
+            13072113
+          ],
+          "false_absence": 0,
+          "claim_id": 289
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1380,
+          "retrieved": [
+            4398832,
+            33744175,
+            16091029,
+            2696669,
+            16669602
+          ],
+          "false_absence": 0,
+          "claim_id": 288
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1599,
+          "retrieved": [
+            16066726,
+            15060036,
+            6916125,
+            17385979,
+            24759989
+          ],
+          "false_absence": 0,
+          "claim_id": 862
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 1518,
+          "retrieved": [
+            11369420,
+            3782,
+            1482508,
+            11900693,
+            22843616
+          ],
+          "false_absence": 0,
+          "claim_id": 321
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1598,
+          "retrieved": [
+            7319759,
+            10692948,
+            4569515,
+            13150868,
+            8039258
+          ],
+          "false_absence": 1,
+          "claim_id": 720
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1528,
+          "retrieved": [
+            2679511,
+            42846032,
+            11514142,
+            21618193,
+            5765455
+          ],
+          "false_absence": 1,
+          "claim_id": 1338
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1535,
+          "retrieved": [
+            6144337,
+            12183342,
+            6115147,
+            1751899,
+            54581054
+          ],
+          "false_absence": 0,
+          "claim_id": 932
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1499,
+          "retrieved": [
+            13235609,
+            4355814,
+            24352096,
+            3563408,
+            7150140
+          ],
+          "false_absence": 0,
+          "claim_id": 193
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 1600,
+          "retrieved": [
+            641786,
+            6421792,
+            2691151,
+            10574949,
+            35800353
+          ],
+          "false_absence": 0,
+          "claim_id": 1093
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1584,
+          "retrieved": [
+            73243806,
+            7031440,
+            17077004,
+            17292204,
+            3617221
+          ],
+          "false_absence": 1,
+          "claim_id": 496
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1589,
+          "retrieved": [
+            16472469,
+            2679511,
+            28019480,
+            34149456,
+            4977049
+          ],
+          "false_absence": 0,
+          "claim_id": 995
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1557,
+          "retrieved": [
+            9558539,
+            29296334,
+            24352096,
+            23867900,
+            3563408
+          ],
+          "false_absence": 0,
+          "claim_id": 202
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1495,
+          "retrieved": [
+            14618675,
+            30928585,
+            27023968,
+            253672,
+            24368596
+          ],
+          "false_absence": 0,
+          "claim_id": 1116
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 1560,
+          "retrieved": [
+            4398832,
+            2696669,
+            11514142,
+            16091029,
+            493346
+          ],
+          "false_absence": 0,
+          "claim_id": 297
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1603,
+          "retrieved": [
+            14171859,
+            23699672,
+            8527722,
+            7414846,
+            34373578
+          ],
+          "false_absence": 0,
+          "claim_id": 850
+        }
+      ],
+      "scan_raw": [
+        {
+          "label": "NEI",
+          "n_ctx": 51934,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 1285
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52407,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 7,
+          "false_absence": 0,
+          "claim_id": 809
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51787,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 150
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51598,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 3,
+          "false_absence": 0,
+          "claim_id": 872
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52186,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 1123
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52092,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 8,
+          "false_absence": 0,
+          "claim_id": 289
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 52302,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 288
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 51966,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 5,
+          "false_absence": 0,
+          "claim_id": 862
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52050,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 1,
+          "false_absence": 0,
+          "claim_id": 321
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 51934,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 13,
+          "false_absence": 0,
+          "claim_id": 720
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 52144,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 1338
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 52102,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 932
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51819,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 16,
+          "false_absence": 0,
+          "claim_id": 193
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 52134,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 3,
+          "false_absence": 0,
+          "claim_id": 1093
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51745,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 31,
+          "false_absence": 0,
+          "claim_id": 496
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 51787,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 3,
+          "false_absence": 0,
+          "claim_id": 995
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52092,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 202
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51871,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 1116
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 52092,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 297
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52470,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 29,
+          "false_absence": 0,
+          "claim_id": 850
+        }
+      ],
+      "scan_card": [
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 38713,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 10,
+          "false_absence": 0,
+          "claim_id": 1285
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38904,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 809
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 38653,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 3,
+          "false_absence": 0,
+          "claim_id": 150
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 38577,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 0,
+          "false_absence": 0,
+          "claim_id": 872
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 38815,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 1123
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38777,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 3,
+          "false_absence": 0,
+          "claim_id": 289
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 38862,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 8,
+          "false_absence": 0,
+          "claim_id": 288
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 38726,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 862
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38760,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 15,
+          "false_absence": 0,
+          "claim_id": 321
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 38713,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 5,
+          "false_absence": 0,
+          "claim_id": 720
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38798,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 12,
+          "false_absence": 0,
+          "claim_id": 1338
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38781,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 5,
+          "false_absence": 0,
+          "claim_id": 932
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38666,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 5,
+          "false_absence": 0,
+          "claim_id": 193
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 38794,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 4,
+          "false_absence": 0,
+          "claim_id": 1093
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38636,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 10,
+          "false_absence": 0,
+          "claim_id": 496
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38653,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 6,
+          "false_absence": 0,
+          "claim_id": 995
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38777,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 4,
+          "false_absence": 0,
+          "claim_id": 202
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38687,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 7,
+          "false_absence": 0,
+          "claim_id": 1116
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38777,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 12,
+          "false_absence": 0,
+          "claim_id": 297
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 38930,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 11,
+          "false_absence": 0,
+          "claim_id": 850
+        }
+      ]
+    },
+    "adversarial": {
+      "rag": [
+        {
+          "label": "NEI",
+          "n_ctx": 1504,
+          "retrieved": [
+            6431384,
+            15238917,
+            774605,
+            4739372,
+            12000227
+          ],
+          "false_absence": 1,
+          "claim_id": 1285
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1535,
+          "retrieved": [
+            4640258,
+            31038121,
+            146012046,
+            71156764,
+            17307849
+          ],
+          "false_absence": 0,
+          "claim_id": 809
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1595,
+          "retrieved": [
+            10120330,
+            9766637,
+            52805891,
+            18182149,
+            11034627
+          ],
+          "false_absence": 1,
+          "claim_id": 150
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1590,
+          "retrieved": [
+            34399427,
+            7897161,
+            52805891,
+            9667914,
+            19731253
+          ],
+          "false_absence": 0,
+          "claim_id": 872
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 1575,
+          "retrieved": [
+            22141221,
+            14886763,
+            4456756,
+            15069043,
+            14104985
+          ],
+          "false_absence": 0,
+          "claim_id": 1123
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1500,
+          "retrieved": [
+            9580772,
+            10212612,
+            205880951,
+            13072113,
+            4456756
+          ],
+          "false_absence": 0,
+          "claim_id": 289
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1146,
+          "retrieved": [
+            16091029,
+            2696669,
+            4398832,
+            16669602,
+            33744175
+          ],
+          "false_absence": 0,
+          "claim_id": 288
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1599,
+          "retrieved": [
+            15060036,
+            6916125,
+            17385979,
+            18027934,
+            24759989
+          ],
+          "false_absence": 1,
+          "claim_id": 862
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1546,
+          "retrieved": [
+            3782,
+            1482508,
+            11900693,
+            22843616,
+            34440103
+          ],
+          "false_absence": 1,
+          "claim_id": 321
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1564,
+          "retrieved": [
+            7319759,
+            13150868,
+            10692948,
+            8039258,
+            6227220
+          ],
+          "false_absence": 1,
+          "claim_id": 720
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1528,
+          "retrieved": [
+            42846032,
+            6431384,
+            11514142,
+            21618193,
+            2679511
+          ],
+          "false_absence": 1,
+          "claim_id": 1338
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1485,
+          "retrieved": [
+            12183342,
+            6115147,
+            1751899,
+            54581054,
+            6493422
+          ],
+          "false_absence": 1,
+          "claim_id": 932
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1551,
+          "retrieved": [
+            24352096,
+            3563408,
+            7150140,
+            40881120,
+            18486696
+          ],
+          "false_absence": 1,
+          "claim_id": 193
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1289,
+          "retrieved": [
+            641786,
+            6421792,
+            2691151,
+            10574949,
+            35800353
+          ],
+          "false_absence": 0,
+          "claim_id": 1093
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1591,
+          "retrieved": [
+            73243806,
+            7031440,
+            17292204,
+            6296756,
+            22434142
+          ],
+          "false_absence": 1,
+          "claim_id": 496
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1589,
+          "retrieved": [
+            28019480,
+            2679511,
+            34149456,
+            4977049,
+            7289706
+          ],
+          "false_absence": 1,
+          "claim_id": 995
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1557,
+          "retrieved": [
+            9558539,
+            24352096,
+            23867900,
+            3563408,
+            25050969
+          ],
+          "false_absence": 0,
+          "claim_id": 202
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1436,
+          "retrieved": [
+            30928585,
+            24368596,
+            14618675,
+            92787648,
+            42412229
+          ],
+          "false_absence": 0,
+          "claim_id": 1116
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 1365,
+          "retrieved": [
+            2696669,
+            11514142,
+            16091029,
+            4398832,
+            33744175
+          ],
+          "false_absence": 1,
+          "claim_id": 297
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 1594,
+          "retrieved": [
+            14171859,
+            8527722,
+            23699672,
+            7414846,
+            34373578
+          ],
+          "false_absence": 0,
+          "claim_id": 850
+        }
+      ],
+      "scan_raw": [
+        {
+          "label": "NEI",
+          "n_ctx": 51934,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 1285
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52407,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 7,
+          "false_absence": 0,
+          "claim_id": 809
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51787,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 10,
+          "false_absence": 0,
+          "claim_id": 150
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51598,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 3,
+          "false_absence": 0,
+          "claim_id": 872
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52186,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 12,
+          "false_absence": 0,
+          "claim_id": 1123
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52092,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 8,
+          "false_absence": 0,
+          "claim_id": 289
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52302,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 11,
+          "false_absence": 0,
+          "claim_id": 288
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51966,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 862
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 52050,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 1,
+          "false_absence": 0,
+          "claim_id": 321
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 51934,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 720
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 52144,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 1338
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 52102,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 932
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51819,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 27,
+          "false_absence": 0,
+          "claim_id": 193
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 52134,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 1093
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51745,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 496
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 51787,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 995
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 52092,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 22,
+          "false_absence": 0,
+          "claim_id": 202
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 51871,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 1116
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 52092,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 297
+        },
+        {
+          "label": "NEI",
+          "n_ctx": 52470,
+          "n_windows": 42,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 850
+        }
+      ],
+      "scan_card": [
+        {
+          "label": "NEI",
+          "n_ctx": 39579,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": null,
+          "false_absence": 1,
+          "claim_id": 1285
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39770,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 809
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 39520,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 11,
+          "false_absence": 0,
+          "claim_id": 150
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39443,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 0,
+          "false_absence": 0,
+          "claim_id": 872
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39681,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 4,
+          "false_absence": 0,
+          "claim_id": 1123
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39643,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 3,
+          "false_absence": 0,
+          "claim_id": 289
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 39728,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 4,
+          "false_absence": 0,
+          "claim_id": 288
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 39592,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 2,
+          "false_absence": 0,
+          "claim_id": 862
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39626,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 15,
+          "false_absence": 0,
+          "claim_id": 321
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39579,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 5,
+          "false_absence": 0,
+          "claim_id": 720
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39664,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 6,
+          "false_absence": 0,
+          "claim_id": 1338
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39647,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 5,
+          "false_absence": 0,
+          "claim_id": 932
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39532,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 5,
+          "false_absence": 0,
+          "claim_id": 193
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39660,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 4,
+          "false_absence": 0,
+          "claim_id": 1093
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39503,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 5,
+          "false_absence": 0,
+          "claim_id": 496
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39520,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 6,
+          "false_absence": 0,
+          "claim_id": 995
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39643,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 4,
+          "false_absence": 0,
+          "claim_id": 202
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39554,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 7,
+          "false_absence": 0,
+          "claim_id": 1116
+        },
+        {
+          "label": "CONTRADICT",
+          "n_ctx": 39643,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 15,
+          "false_absence": 0,
+          "claim_id": 297
+        },
+        {
+          "label": "SUPPORT",
+          "n_ctx": 39796,
+          "n_windows": 17,
+          "n_cards": 500,
+          "hit_window": 11,
+          "false_absence": 0,
+          "claim_id": 850
+        }
+      ]
+    }
+  }
+}

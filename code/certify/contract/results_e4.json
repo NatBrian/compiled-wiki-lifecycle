@@ -1,0 +1,68 @@
+{
+  "config": {
+    "data": "benchmarks/scifact-open/data",
+    "n_docs": 400,
+    "docs_per_page": 8,
+    "n_cal": 40,
+    "alpha": 0.05,
+    "seed": 0,
+    "workers": 1,
+    "cal_file": "contract/results_e1.json",
+    "out": "contract/results_e4.json"
+  },
+  "initial": {
+    "repair_set": {
+      "lcb": 0.272,
+      "r_hat": 0.5709,
+      "n": 38
+    },
+    "holdout": {
+      "lcb": 0.2442,
+      "r_hat": 0.5352,
+      "n": 38
+    }
+  },
+  "targeted": {
+    "n_pages_rebuilt": 17,
+    "adaptive_invalid_cert": {
+      "lcb": 0.7596,
+      "r_hat": 1.0,
+      "n": 38
+    },
+    "honest_cert": {
+      "lcb": 0.2442,
+      "r_hat": 0.5352,
+      "n": 38
+    },
+    "overclaim_lcb_gap": 0.5154
+  },
+  "rebuild": {
+    "n_pages_rebuilt": 50,
+    "repair_set": {
+      "lcb": 0.3292,
+      "r_hat": 0.6423,
+      "n": 38
+    },
+    "holdout": {
+      "lcb": 0.3887,
+      "r_hat": 0.7136,
+      "n": 38
+    }
+  },
+  "union": {
+    "n_pages_rebuilt": 50,
+    "store_size_factor": 2.0,
+    "repair_set": {
+      "lcb": 0.2442,
+      "r_hat": 0.5352,
+      "n": 38
+    },
+    "holdout": {
+      "lcb": 0.3887,
+      "r_hat": 0.7136,
+      "n": 38
+    }
+  },
+  "n_calls": 471,
+  "minutes": 0.9
+}

@@ -1,0 +1,323 @@
+{
+  "config": {
+    "data": "benchmarks/scifact-open/data",
+    "n_docs0": 400,
+    "docs_per_page": 8,
+    "n_cal": 40,
+    "n_fpr": 120,
+    "n_hold_gold": 16,
+    "batches": 8,
+    "batch_fillers": 12,
+    "refresh_k": 8,
+    "alpha": 0.05,
+    "seed": 0,
+    "workers": 8,
+    "cal_file": "contract/results_e1.json",
+    "out": "contract/results_e2e3.json"
+  },
+  "e3_lottery_transfer": {
+    "certA_lcb": 0.3273,
+    "truthB_corrected": 0.5056,
+    "transfer_valid": true,
+    "per_probe_disagree": 0.2333
+  },
+  "cal": {
+    "k_tpr": 59,
+    "n_tpr": 80,
+    "k_fpr": 0,
+    "n_fpr": 120
+  },
+  "timeline": [
+    {
+      "t": 0,
+      "stale": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "full": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "maintained": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "truth": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "in_store": 60,
+      "cost": {
+        "stale": 60,
+        "full": 60,
+        "maintained": 60
+      }
+    },
+    {
+      "t": 1,
+      "in_store": 62,
+      "n_new_docs": 14,
+      "n_changed_pages": 7,
+      "stale": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "full": {
+        "lcb": 0.3143,
+        "naive_lcb": 0.313,
+        "raw": 0.4194,
+        "n": 62
+      },
+      "maintained": {
+        "lcb": 0.3143,
+        "naive_lcb": 0.313,
+        "raw": 0.4194,
+        "n": 62
+      },
+      "truth_corrected": 0.5557,
+      "stale_valid": true,
+      "maintained_valid": true,
+      "cost": {
+        "stale": 60,
+        "full": 122,
+        "maintained": 78
+      }
+    },
+    {
+      "t": 2,
+      "in_store": 64,
+      "n_new_docs": 15,
+      "n_changed_pages": 13,
+      "stale": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "full": {
+        "lcb": 0.2676,
+        "naive_lcb": 0.2738,
+        "raw": 0.375,
+        "n": 64
+      },
+      "maintained": {
+        "lcb": 0.2676,
+        "naive_lcb": 0.2738,
+        "raw": 0.375,
+        "n": 64
+      },
+      "truth_corrected": 0.5165,
+      "stale_valid": true,
+      "maintained_valid": true,
+      "cost": {
+        "stale": 60,
+        "full": 186,
+        "maintained": 104
+      }
+    },
+    {
+      "t": 3,
+      "in_store": 66,
+      "n_new_docs": 18,
+      "n_changed_pages": 11,
+      "stale": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "full": {
+        "lcb": 0.2908,
+        "naive_lcb": 0.2927,
+        "raw": 0.3939,
+        "n": 66
+      },
+      "maintained": {
+        "lcb": 0.2908,
+        "naive_lcb": 0.2927,
+        "raw": 0.3939,
+        "n": 66
+      },
+      "truth_corrected": 0.5424,
+      "stale_valid": true,
+      "maintained_valid": true,
+      "cost": {
+        "stale": 60,
+        "full": 252,
+        "maintained": 127
+      }
+    },
+    {
+      "t": 4,
+      "in_store": 68,
+      "n_new_docs": 14,
+      "n_changed_pages": 10,
+      "stale": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "full": {
+        "lcb": 0.264,
+        "naive_lcb": 0.2701,
+        "raw": 0.3676,
+        "n": 68
+      },
+      "maintained": {
+        "lcb": 0.264,
+        "naive_lcb": 0.2701,
+        "raw": 0.3676,
+        "n": 68
+      },
+      "truth_corrected": 0.5059,
+      "stale_valid": true,
+      "maintained_valid": true,
+      "cost": {
+        "stale": 60,
+        "full": 320,
+        "maintained": 149
+      }
+    },
+    {
+      "t": 5,
+      "in_store": 70,
+      "n_new_docs": 17,
+      "n_changed_pages": 11,
+      "stale": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "full": {
+        "lcb": 0.2703,
+        "naive_lcb": 0.2749,
+        "raw": 0.3714,
+        "n": 70
+      },
+      "maintained": {
+        "lcb": 0.2703,
+        "naive_lcb": 0.2749,
+        "raw": 0.3714,
+        "n": 70
+      },
+      "truth_corrected": 0.5109,
+      "stale_valid": true,
+      "maintained_valid": true,
+      "cost": {
+        "stale": 60,
+        "full": 390,
+        "maintained": 175
+      }
+    },
+    {
+      "t": 6,
+      "in_store": 72,
+      "n_new_docs": 14,
+      "n_changed_pages": 10,
+      "stale": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "full": {
+        "lcb": 0.261,
+        "naive_lcb": 0.2668,
+        "raw": 0.3611,
+        "n": 72
+      },
+      "maintained": {
+        "lcb": 0.261,
+        "naive_lcb": 0.2668,
+        "raw": 0.3611,
+        "n": 72
+      },
+      "truth_corrected": 0.4965,
+      "stale_valid": true,
+      "maintained_valid": true,
+      "cost": {
+        "stale": 60,
+        "full": 462,
+        "maintained": 196
+      }
+    },
+    {
+      "t": 7,
+      "in_store": 74,
+      "n_new_docs": 19,
+      "n_changed_pages": 13,
+      "stale": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "full": {
+        "lcb": 0.267,
+        "naive_lcb": 0.2715,
+        "raw": 0.3649,
+        "n": 74
+      },
+      "maintained": {
+        "lcb": 0.267,
+        "naive_lcb": 0.2715,
+        "raw": 0.3649,
+        "n": 74
+      },
+      "truth_corrected": 0.5015,
+      "stale_valid": true,
+      "maintained_valid": true,
+      "cost": {
+        "stale": 60,
+        "full": 536,
+        "maintained": 219
+      }
+    },
+    {
+      "t": 8,
+      "in_store": 76,
+      "n_new_docs": 21,
+      "n_changed_pages": 12,
+      "stale": {
+        "lcb": 0.3273,
+        "naive_lcb": 0.3242,
+        "raw": 0.4333,
+        "n": 60
+      },
+      "full": {
+        "lcb": 0.2728,
+        "naive_lcb": 0.276,
+        "raw": 0.3684,
+        "n": 76
+      },
+      "maintained": {
+        "lcb": 0.2728,
+        "naive_lcb": 0.276,
+        "raw": 0.3684,
+        "n": 76
+      },
+      "truth_corrected": 0.5062,
+      "stale_valid": true,
+      "maintained_valid": true,
+      "cost": {
+        "stale": 60,
+        "full": 612,
+        "maintained": 248
+      }
+    }
+  ],
+  "n_calls": 1092,
+  "minutes": 14.3
+}

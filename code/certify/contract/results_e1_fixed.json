@@ -1,0 +1,38 @@
+{
+  "n_contaminated_removed": 23,
+  "n_fpr_clean": 97,
+  "tpr_single": 0.8,
+  "tpr_buried": 0.675,
+  "n_tpr_distinct": 40,
+  "fpr_wiki_clean": 0.0,
+  "fpr_raw_clean": 0.0,
+  "wiki": {
+    "raw": 0.434,
+    "corrected_R": 0.543,
+    "certificate_LCB": 0.31,
+    "min_sim_coverage": 0.999,
+    "sim_coverage": {
+      "0.3": 0.999,
+      "0.4": 1.0,
+      "0.5": 1.0,
+      "0.6": 1.0,
+      "0.7": 1.0,
+      "0.8": 1.0
+    }
+  },
+  "rag_dense": {
+    "raw": 0.803,
+    "corrected_R": 1.0,
+    "certificate_LCB": 0.737,
+    "min_sim_coverage": 0.999,
+    "sim_coverage": {
+      "0.3": 0.999,
+      "0.4": 1.0,
+      "0.5": 1.0,
+      "0.6": 1.0,
+      "0.7": 1.0,
+      "0.8": 1.0
+    }
+  },
+  "rag_recall_at_k": 0.961
+}

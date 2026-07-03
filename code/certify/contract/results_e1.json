@@ -1,0 +1,862 @@
+{
+  "config": {
+    "data": "benchmarks/scifact-open/data",
+    "n_docs": 500,
+    "docs_per_page": 8,
+    "n_cal": 40,
+    "n_fpr": 120,
+    "k_rag": 5,
+    "alpha": 0.05,
+    "n_splits": 1000,
+    "audit_frac": 0.5,
+    "seed": 0,
+    "workers": 1,
+    "out": "contract/results_e1.json",
+    "store_out": "contract/store_e1.json"
+  },
+  "report": {
+    "tpr_single": 0.8,
+    "tpr_buried": 0.675,
+    "n_tpr_distinct": 40,
+    "fpr_wiki_style": 0.0,
+    "fpr_raw_style": 0.0,
+    "n_fpr": 120,
+    "wiki": {
+      "raw_verdict_rate": 0.487,
+      "corrected_R": 0.609,
+      "certificate_LCB": 0.371,
+      "parts": {
+        "p_l": 0.3613,
+        "tpr_u": 0.916,
+        "fpr_u": 0.0335,
+        "degenerate": false,
+        "overshoot": false
+      },
+      "sim_coverage_by_trueR": {
+        "0.3": 1.0,
+        "0.4": 1.0,
+        "0.5": 0.999,
+        "0.6": 0.999,
+        "0.7": 0.999,
+        "0.8": 0.999
+      },
+      "min_sim_coverage": 0.999
+    },
+    "rag_dense": {
+      "raw_verdict_rate": 0.803,
+      "corrected_R": 1.0,
+      "certificate_LCB": 0.74,
+      "parts": {
+        "p_l": 0.6862,
+        "tpr_u": 0.916,
+        "fpr_u": 0.0335,
+        "degenerate": false,
+        "overshoot": false
+      },
+      "sim_coverage_by_trueR": {
+        "0.3": 1.0,
+        "0.4": 1.0,
+        "0.5": 0.999,
+        "0.6": 0.999,
+        "0.7": 0.999,
+        "0.8": 0.999
+      },
+      "min_sim_coverage": 0.999
+    },
+    "rag_recall_at_k": 0.961,
+    "n_calls": 535,
+    "minutes": 1.7
+  },
+  "verdicts": {
+    "wiki": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ],
+    "rag": [
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1
+    ],
+    "tpr_single": [
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "tpr_buried": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "fpr_wiki": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "fpr_raw": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "audit_claims": [
+    {
+      "claim": "Somatic missense mutations in NT5C2 are associated with relapse of acute lymphoblastic leukemia.",
+      "gold": 641786
+    },
+    {
+      "claim": "Gene expression can be highly variable across genetically identical cells.",
+      "gold": 12804937
+    },
+    {
+      "claim": "Choice of specialty is not influenced by debt accrued from medical training.",
+      "gold": 11624482
+    },
+    {
+      "claim": "Alirocumab treatment increases apo(a) fractional clearance rate.",
+      "gold": 6540064
+    },
+    {
+      "claim": "Tuberculosis incidence is correlated with residential crowding in the UK.",
+      "gold": 24241932
+    },
+    {
+      "claim": "Supracellular actomyosin structures are found at boundaries in Drosophila wing imaginal discs.",
+      "gold": 15816729
+    },
+    {
+      "claim": "Piezo1 channels are sensors for cell crowding in epithelial cells.",
+      "gold": 4422723
+    },
+    {
+      "claim": "In pediatric tissues, the dominant population of T cells are naive T cells emigrants from the thymus.",
+      "gold": 23460562
+    },
+    {
+      "claim": "V-9302 causes antitumor responses by increasing cell death and oxidative stress.",
+      "gold": 5256564
+    },
+    {
+      "claim": "Delayed sleep phase disorder is associated with a dominant coding variation the core circadian clock gene CRY1.",
+      "gold": 4587978
+    },
+    {
+      "claim": "GEF-H1 activates RhoA in response to extracellular signal-regulated kinase activation.",
+      "gold": 10991183
+    },
+    {
+      "claim": "Verbal autopsy (VA) performed well in distinguishing between different injury categories in the elderly population.",
+      "gold": 17415081
+    },
+    {
+      "claim": "Satellite cell dysfunction is not a key factor in sarcopenia development.",
+      "gold": 20418809
+    },
+    {
+      "claim": "Obesity decreases life expectancy.",
+      "gold": 195689316
+    },
+    {
+      "claim": "C. elegans germlines lose their immortal character when nuclear RNAi is disabled.",
+      "gold": 2541699
+    },
+    {
+      "claim": "C-Met is involved in epithelial-mesenchymal transition in tumor cells.",
+      "gold": 13235609
+    },
+    {
+      "claim": "Tet enzymes activate microRNAs required for iPSC derivation.",
+      "gold": 24713020
+    },
+    {
+      "claim": "Risedronate reduces risk of vertebral and non-vertebral fractures.",
+      "gold": 19878070
+    },
+    {
+      "claim": "Adult tissue-resident macrophages are maintained independent of circulating monocytes.",
+      "gold": 7521113
+    },
+    {
+      "claim": "Radiographic verified pneumonia predictions are improved by the combination of physical examinations with C-reactive protein values.",
+      "gold": 5558754
+    },
+    {
+      "claim": "Rapamycin treatment raises G-CSF levels.",
+      "gold": 24169509
+    },
+    {
+      "claim": "Colloid exposure causes morbidity.",
+      "gold": 8814634
+    },
+    {
+      "claim": "IFI16 promotes STING phosphorylation and translocation, resulting in elevated activation of STING induced by cGAMP.",
+      "gold": 19688024
+    },
+    {
+      "claim": "Electrophysiological changes in motor neurons have been observed in patients with amyotrophic lateral sclerosis.",
+      "gold": 37156706
+    },
+    {
+      "claim": "SOD1 integrates oxygen and glucose signals to repress cellular respiration.",
+      "gold": 2919030
+    },
+    {
+      "claim": "Nitric oxide (NO) can S- nitrosylate G protein-coupled receptor kinases (GRKs) to suppress their activity and block phosphorylation.",
+      "gold": 23699672
+    },
+    {
+      "claim": "A country's Vaccine Alliance (GAVI) eligibility is associated with accelerated adoption of the Hub vaccine.",
+      "gold": 12428497
+    },
+    {
+      "claim": "There is a neuroprotective effect of Trpm4 inhibition in mice and rats.",
+      "gold": 30553457
+    },
+    {
+      "claim": "BRCA 1 mutation carriers' risk of breast and ovarian cancer  is not influence by the location of the mutation.",
+      "gold": 17088791
+    },
+    {
+      "claim": "A deficiency of vitamin B6 increases blood levels of homocysteine.",
+      "gold": 12810152
+    },
+    {
+      "claim": "Polyglutamine binding protein 1 (PQBP1) is the co-receptor of HIV-DNA to trigger cell-autonomous antiviral responses.",
+      "gold": 6501747
+    },
+    {
+      "claim": "All phenotypes associated with reduced IIS require the gene daf-16.",
+      "gold": 23787061
+    },
+    {
+      "claim": "Ultrafine Anaphase Bridges represent a mechanism for resolving partially-replicated stretches of DNA.",
+      "gold": 2679511
+    },
+    {
+      "claim": "Nrde-3 facilitates heritable silencing in C. elegans by transporting secondary siRNAs to the nucleus.",
+      "gold": 3154880
+    },
+    {
+      "claim": "Low saturated fat diets do not have adverse effects on growth or development of infants.",
+      "gold": 10692948
+    },
+    {
+      "claim": "The phosphorylation of Drp1 at S616 site promotes its mitochondrial translocation when activated by Ca 2+ /calmodulin-dependent kinase II (CaMKII).",
+      "gold": 14362678
+    },
+    {
+      "claim": "Patients in stable partnerships have a slower progression from HIV to death.",
+      "gold": 17077004
+    },
+    {
+      "claim": "DUSP4 downregulation activates the Ras-ERK pathway",
+      "gold": 7821634
+    },
+    {
+      "claim": "Pseudoknots alter gene expression by inducing ribosomal frameshifts in viruses.",
+      "gold": 1383826
+    },
+    {
+      "claim": "High cardiopulmonary fitness causes decreased mortality rate.",
+      "gold": 13230773
+    },
+    {
+      "claim": "Long-term use of statins showed a decreased risk of gallstones followed by cholecystectomy.",
+      "gold": 22420524
+    },
+    {
+      "claim": "The myocardial cell lineage originally develops from cardiac progenitors of mesodermal origin.",
+      "gold": 4427392
+    },
+    {
+      "claim": "Serotonin receptors play a role in depression",
+      "gold": 9226304
+    },
+    {
+      "claim": "Patients with panic anxiety show increased CSF levels of hypocretin.",
+      "gold": 16056514
+    },
+    {
+      "claim": "Motor neurons from patients with amyotrophic lateral sclerosis have electrophysiological changes relative to healthy patients.",
+      "gold": 37156706
+    },
+    {
+      "claim": "High methylation levels within individual DNA molecules correlates with high nucleosome occupancy across species.",
+      "gold": 1837002
+    },
+    {
+      "claim": "Autophagy deficiency in the liver protects from insulin resistance.",
+      "gold": 6227220
+    },
+    {
+      "claim": "Synaptic activity enhances local synthesis of brain derived neurotrophic factor from postsynaptic dendrites.",
+      "gold": 4456756
+    },
+    {
+      "claim": "Having a main partner increases survival rates in HIV patients.",
+      "gold": 17077004
+    },
+    {
+      "claim": "CRY proteins mediate light signal transduction.",
+      "gold": 5035851
+    },
+    {
+      "claim": "Polyploidization in megakaryocytes occurs in the presence of an aberrant mitosis.",
+      "gold": 7114092
+    },
+    {
+      "claim": "Some countries have achieved the goal of eradicting malaria.",
+      "gold": 1173667
+    },
+    {
+      "claim": "Obesity decreases life expectancy.",
+      "gold": 195689316
+    },
+    {
+      "claim": "Falsified artemisinin family drugs with no active ingredient can be life-threatening.",
+      "gold": 2526777
+    },
+    {
+      "claim": "Pyridostatin increases telomere fragility in BRCA2-deficient cells.",
+      "gold": 16472469
+    },
+    {
+      "claim": "Bariatric surgery has a deleterious impact on mental health.",
+      "gold": 26480862
+    },
+    {
+      "claim": "T regulatory cells (tTregs) lacking \u03b1v\u03b28 are unable to suppress pathogenic T-cell responses during active inflammation.",
+      "gold": 17997584
+    },
+    {
+      "claim": "The 7.5% 10-year Atherosclerotic cardiovascular disease risk threshold strategy for initiating statin therapy is more cost-effective than the 10% risk threshold strategy.",
+      "gold": 1287809
+    },
+    {
+      "claim": "Genome size differences in rice are explained by LTR retrotransposon expansion.",
+      "gold": 8352137
+    },
+    {
+      "claim": "CHEK2 has a significant role in breast cancer",
+      "gold": 2852880
+    },
+    {
+      "claim": "Normal granulomas formed in the absence of TNF-\u2423 despite increased bacterial growth.",
+      "gold": 16066726
+    },
+    {
+      "claim": "Deficiency of Tetraspanin-3 causes impaired stem cell-renewal and disease propagation.",
+      "gold": 11369420
+    },
+    {
+      "claim": "Physical activity levels have been associated with the differences in VO2max between black and white youth.",
+      "gold": 18537148
+    },
+    {
+      "claim": "Hypertension can be accurately diagnosed with ambulatory blood pressure monitoring.",
+      "gold": 25515907
+    },
+    {
+      "claim": "Myelin sheaths play an important role in trophic support.",
+      "gold": 14769302
+    },
+    {
+      "claim": "Golli-deficient T-cells are hyper proliferative in initial clonal expansion.",
+      "gold": 14767844
+    },
+    {
+      "claim": "The PDPN gene activates the C-type lectin receptor (CLEC-2).",
+      "gold": 7370282
+    },
+    {
+      "claim": "Increased expression of Bcl2 is important for the maintenance and progression of tumors.",
+      "gold": 37549932
+    },
+    {
+      "claim": "Near-infrared wavelengths increase penetration depth in fiberoptic confocal microscopy.",
+      "gold": 2056197
+    },
+    {
+      "claim": "Notch signalling can occur between tumor cells and stromal cells.",
+      "gold": 20568364
+    },
+    {
+      "claim": "Funding the elimination of sporadic malaria cases is a less efficient use of healthcare resources than treating other health priorities in a setting with limited resources.",
+      "gold": 22401061
+    },
+    {
+      "claim": "Adult tissue-resident macrophages possess a self-renewing capacity.",
+      "gold": 7521113
+    },
+    {
+      "claim": "Intramembrane cleavage by SPP helps facilitate in the degradation of proteins with a complex membrane orientation.",
+      "gold": 19992369
+    },
+    {
+      "claim": "Teaching hospitals provide better care than non-teaching hospitals.",
+      "gold": 36885493
+    },
+    {
+      "claim": "Incidence of sepsis has remained stable between 2009-2014.",
+      "gold": 4824840
+    },
+    {
+      "claim": "Transplanted human glial progenitor cells can form a neural network with host animals' neurons.",
+      "gold": 16284655
+    }
+  ]
+}

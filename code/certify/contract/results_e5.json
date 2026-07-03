@@ -1,0 +1,187 @@
+{
+  "config": {
+    "data": "contract/e5_data.json",
+    "docs_per_page": 8,
+    "batches": 8,
+    "n_audit": 120,
+    "refresh_k": 10,
+    "alpha": 0.05,
+    "seed": 0,
+    "workers": 1,
+    "out": "contract/results_e5.json"
+  },
+  "calib": {
+    "ret_tpr": [
+      24,
+      40
+    ],
+    "ret_fpr": [
+      1,
+      40
+    ],
+    "ser_tpr": [
+      24,
+      40
+    ],
+    "ser_fpr": [
+      1,
+      40
+    ]
+  },
+  "timeline": [
+    {
+      "t": 0,
+      "retention_raw": 0.017,
+      "retention_LCB": 0.0,
+      "SER_raw": 0.742,
+      "SER_UB": 1.0,
+      "cost": 120
+    },
+    {
+      "t": 1,
+      "n_superseded_cum": 15,
+      "full": {
+        "retention_raw": 0.125,
+        "retention_LCB": 0.0,
+        "SER_raw": 0.633,
+        "SER_UB": 1.0
+      },
+      "maintained": {
+        "retention_raw": 0.125,
+        "retention_LCB": 0.0,
+        "SER_raw": 0.633,
+        "SER_UB": 1.0
+      },
+      "cost_full": 240,
+      "cost_maintained": 166
+    },
+    {
+      "t": 2,
+      "n_superseded_cum": 30,
+      "full": {
+        "retention_raw": 0.217,
+        "retention_LCB": 0.0,
+        "SER_raw": 0.542,
+        "SER_UB": 1.0
+      },
+      "maintained": {
+        "retention_raw": 0.217,
+        "retention_LCB": 0.0,
+        "SER_raw": 0.542,
+        "SER_UB": 1.0
+      },
+      "cost_full": 360,
+      "cost_maintained": 216
+    },
+    {
+      "t": 3,
+      "n_superseded_cum": 45,
+      "full": {
+        "retention_raw": 0.317,
+        "retention_LCB": 0.14,
+        "SER_raw": 0.458,
+        "SER_UB": 1.0
+      },
+      "maintained": {
+        "retention_raw": 0.317,
+        "retention_LCB": 0.14,
+        "SER_raw": 0.458,
+        "SER_UB": 1.0
+      },
+      "cost_full": 480,
+      "cost_maintained": 269
+    },
+    {
+      "t": 4,
+      "n_superseded_cum": 60,
+      "full": {
+        "retention_raw": 0.4,
+        "retention_LCB": 0.262,
+        "SER_raw": 0.367,
+        "SER_UB": 1.0
+      },
+      "maintained": {
+        "retention_raw": 0.4,
+        "retention_LCB": 0.262,
+        "SER_raw": 0.367,
+        "SER_UB": 1.0
+      },
+      "cost_full": 600,
+      "cost_maintained": 314
+    },
+    {
+      "t": 5,
+      "n_superseded_cum": 75,
+      "full": {
+        "retention_raw": 0.5,
+        "retention_LCB": 0.416,
+        "SER_raw": 0.275,
+        "SER_UB": 0.884
+      },
+      "maintained": {
+        "retention_raw": 0.5,
+        "retention_LCB": 0.416,
+        "SER_raw": 0.275,
+        "SER_UB": 0.884
+      },
+      "cost_full": 720,
+      "cost_maintained": 354
+    },
+    {
+      "t": 6,
+      "n_superseded_cum": 90,
+      "full": {
+        "retention_raw": 0.575,
+        "retention_LCB": 0.535,
+        "SER_raw": 0.2,
+        "SER_UB": 0.69
+      },
+      "maintained": {
+        "retention_raw": 0.575,
+        "retention_LCB": 0.535,
+        "SER_raw": 0.2,
+        "SER_UB": 0.69
+      },
+      "cost_full": 840,
+      "cost_maintained": 400
+    },
+    {
+      "t": 7,
+      "n_superseded_cum": 105,
+      "full": {
+        "retention_raw": 0.683,
+        "retention_LCB": 0.714,
+        "SER_raw": 0.1,
+        "SER_UB": 0.414
+      },
+      "maintained": {
+        "retention_raw": 0.692,
+        "retention_LCB": 0.728,
+        "SER_raw": 0.1,
+        "SER_UB": 0.414
+      },
+      "cost_full": 960,
+      "cost_maintained": 458
+    },
+    {
+      "t": 8,
+      "n_superseded_cum": 120,
+      "full": {
+        "retention_raw": 0.758,
+        "retention_LCB": 0.842,
+        "SER_raw": 0.033,
+        "SER_UB": 0.208
+      },
+      "maintained": {
+        "retention_raw": 0.758,
+        "retention_LCB": 0.842,
+        "SER_raw": 0.033,
+        "SER_UB": 0.208
+      },
+      "cost_full": 1080,
+      "cost_maintained": 504
+    }
+  ],
+  "n_calls": 1700,
+  "minutes": 1.1
+}

@@ -1,0 +1,35 @@
+{
+  "report": {
+    "judge": "llama3.1-8b",
+    "tpr": 0.8,
+    "tpr_buried": 0.75,
+    "fpr_wiki": 0.0,
+    "fpr_raw": 0.05,
+    "wiki": {
+      "raw": 0.461,
+      "corrected_R": 0.576,
+      "certificate_LCB": 0.343,
+      "parts": {
+        "p_l": 0.3366,
+        "tpr_u": 0.916,
+        "fpr_u": 0.0335,
+        "degenerate": false,
+        "overshoot": false
+      }
+    },
+    "rag_dense": {
+      "raw": 0.803,
+      "corrected_R": 1.0,
+      "certificate_LCB": 0.715,
+      "parts": {
+        "p_l": 0.6862,
+        "tpr_u": 0.916,
+        "fpr_u": 0.1108,
+        "degenerate": false,
+        "overshoot": false
+      }
+    },
+    "minutes": 0.3,
+    "n_calls": 472
+  }
+}

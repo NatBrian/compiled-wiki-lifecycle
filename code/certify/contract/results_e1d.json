@@ -1,0 +1,35 @@
+{
+  "report": {
+    "judge": "qwen2.5-14b",
+    "tpr": 0.8,
+    "tpr_buried": 0.675,
+    "fpr_wiki": 0.0,
+    "fpr_raw": 0.0,
+    "wiki": {
+      "raw": 0.447,
+      "corrected_R": 0.559,
+      "certificate_LCB": 0.329,
+      "parts": {
+        "p_l": 0.3243,
+        "tpr_u": 0.916,
+        "fpr_u": 0.0335,
+        "degenerate": false,
+        "overshoot": false
+      }
+    },
+    "rag_dense": {
+      "raw": 0.803,
+      "corrected_R": 1.0,
+      "certificate_LCB": 0.74,
+      "parts": {
+        "p_l": 0.6862,
+        "tpr_u": 0.916,
+        "fpr_u": 0.0335,
+        "degenerate": false,
+        "overshoot": false
+      }
+    },
+    "minutes": 0.5,
+    "n_calls": 472
+  }
+}

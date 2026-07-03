@@ -1,0 +1,140 @@
+{
+  "config": {
+    "data": "../benchmarks/scifact-open/data",
+    "corpus": "corpus_candidates.jsonl",
+    "smoke": true,
+    "N": 30,
+    "n_claims": 2,
+    "methods": "rag,dump,compile",
+    "model": null,
+    "device": "cpu",
+    "k_rag": 5,
+    "k_compile": 20,
+    "dump_char_budget": 24000,
+    "seed": 0,
+    "out": "results_smoke.json"
+  },
+  "summary": {
+    "rag": {
+      "false_absence_rate": 0.0,
+      "avg_query_ctx_tokens": 1424.0,
+      "n": 2
+    },
+    "dump": {
+      "false_absence_rate": 1.0,
+      "avg_query_ctx_tokens": 5330.0,
+      "n": 2
+    },
+    "compile": {
+      "false_absence_rate": 0.0,
+      "avg_query_ctx_tokens": 796.0,
+      "n": 2
+    }
+  },
+  "per_claim": {
+    "rag": [
+      {
+        "label": "SUPPORT",
+        "n_ctx": 1432,
+        "retrieved": [
+          6490571,
+          32505050,
+          24341590,
+          1480955,
+          4961627
+        ],
+        "false_absence": 0,
+        "claim_id": 7
+      },
+      {
+        "label": "SUPPORT",
+        "n_ctx": 1417,
+        "retrieved": [
+          24313685,
+          24341590,
+          23838305,
+          30328289,
+          8553718
+        ],
+        "false_absence": 0,
+        "claim_id": 29
+      }
+    ],
+    "dump": [
+      {
+        "label": "NEI",
+        "n_ctx": 5332,
+        "n_docs_fit": 20,
+        "n_total": 30,
+        "false_absence": 1,
+        "claim_id": 7
+      },
+      {
+        "label": "NEI",
+        "n_ctx": 5328,
+        "n_docs_fit": 20,
+        "n_total": 30,
+        "false_absence": 1,
+        "claim_id": 29
+      }
+    ],
+    "compile": [
+      {
+        "label": "SUPPORT",
+        "n_ctx": 794,
+        "retrieved": [
+          6490571,
+          24897316,
+          32505050,
+          24313685,
+          23725281,
+          10483544,
+          8553718,
+          1480955,
+          13004946,
+          30328289,
+          23838305,
+          11543630,
+          8483402,
+          12640810,
+          23356551,
+          10050264,
+          18069352,
+          5407028,
+          21640422,
+          3452189
+        ],
+        "false_absence": 0,
+        "claim_id": 7
+      },
+      {
+        "label": "SUPPORT",
+        "n_ctx": 798,
+        "retrieved": [
+          24313685,
+          24341590,
+          30328289,
+          8553718,
+          17258479,
+          23838305,
+          10483544,
+          23356551,
+          6490571,
+          24897316,
+          4961627,
+          29699277,
+          74256930,
+          32505050,
+          18069352,
+          4975272,
+          22271664,
+          11543630,
+          8483402,
+          10050264
+        ],
+        "false_absence": 0,
+        "claim_id": 29
+      }
+    ]
+  }
+}
