@@ -1,0 +1,23 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\begin{table}[h]
+\centering
+\small
+\caption{The lifecycle: one mechanism and one headline number per stage, with the limitation that most bounds its generality.}
+\label{tab:lifecycle}
+\begin{tabular}{p{1.7cm}p{3.6cm}p{3.9cm}p{4.3cm}}
+\toprule
+Stage & Mechanism & Headline number & Key limitation \\
+\midrule
+Compile & recency-aware supersession resolution & SER $0.007$ vs.\ $0.177$--$0.280$ baselines ($n{=}300$) & single build, no seed variance \\
+Certify & noisy-judge-corrected $(\delta,\varepsilon)$ confidence bound, incrementally maintained & maintained validity at $40$--$47\%$ of full-audit cost & compiler family varied only on the fidelity gate \\
+Maintain & offline-trained maintainer + per-batch anytime-valid rollback gate & $+0.127$ retention over best prompt ($p{=}0.009$); LossGate $+0.12$--$0.14$ & dangerous half of the reward-gaming boundary law untested; 2nd model scale dropped \\
+Retract & membership-keyed write veto vs.\ correctness-keyed gate & $0.990 \to 0.000$ residual surfacing & second substrate is an $n{=}24$ directional probe; fused-claim retraction is open \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three patterns recur across stages independently of the specific benchmark or model. First, \emph{resolution beats accumulation}: a system that overwrites/resolves rather than appends is what fixes staleness (\S\ref{sec:compile}), and the same overwrite-vs-append distinction is what makes membership-gated retraction durable against a correctness-gated one that merely appends a veto (\S\ref{sec:retract}). Second, \emph{self-audit is not audit}: the adaptivity trap (\S\ref{sec:certify}) and the reward-gaming boundary in trained maintenance (\S\ref{sec:maintain}) are the same failure at two different stages --- a system that grades its own repair, or trains on its own selection signal, will look better than it is unless the audit set is held genuinely independent. Third, \emph{a bound that is valid but loose is still useful}: both the currency certificate (\S\ref{sec:certify}) and LossGate (\S\ref{sec:maintain}) are explicitly not tight at small sample sizes, and we treat that as a disclosed scope limitation rather than a reason to drop the confidence-bound framing --- a loose-but-valid bound is still strictly more informative than a point estimate with no bound at all.
+
+What does not yet generalize: every stage's primary evidence comes from a small number of model families (mostly Qwen2.5/3), one or two benchmarks, and in most cases a single build or seed count too small to report full seed-variance statistics. We view the lifecycle framing itself --- compile with resolution, certify with a maintained confidence bound, maintain with a certified rollback gate, retract with a membership-keyed veto --- as the contribution most likely to generalize beyond these specific numbers, since the same overwrite-vs-accumulate and self-audit-vs-independent-audit distinctions appear at every stage we tested it at.
