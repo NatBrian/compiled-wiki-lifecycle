@@ -1,0 +1,7 @@
+torch
+transformers>=4.51
+accelerate
+bitsandbytes
+scikit-learn
+matplotlib
+numpy
