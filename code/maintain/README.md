@@ -239,7 +239,7 @@ in both directories does:
 
 ```python
 HERE = os.path.dirname(os.path.abspath(__file__))
-CODE = os.path.dirname(os.path.dirname(HERE))      # .../llm-wiki/code
+CODE = os.path.dirname(os.path.dirname(HERE))      # .../compiled-wiki-lifecycle/code
 sys.path.insert(0, os.path.join(CODE, "shared"))   # oai_client/maintain/certify/stats/currency/data
 P2 = os.path.join(CODE, "certify", "contract")     # certify stage's data assets (e5_data.json, results_e1.json)
 ```

@@ -41,8 +41,8 @@ results/          small final result files backing the paper's tables
 Each stage needs a locally-served model (vLLM, OpenAI-compatible) and downloads its own datasets on first run — see [`docs/REPRODUCE.md`](docs/REPRODUCE.md) for exact commands, ports, and expected runtimes per stage. There is no single "run everything" script by design: the four stages use different models, GPU budgets, and (for `retract/agent-memory/letta_ladder.py`) optional external services (Letta, Postgres+pgvector) that most reproductions won't need.
 
 ```bash
-git clone <this-repo>
-cd llm-wiki
+git clone https://github.com/NatBrian/compiled-wiki-lifecycle.git
+cd compiled-wiki-lifecycle
 pip install -r requirements.txt   # consolidated; see docs/REPRODUCE.md for which subset a given stage needs
 ```
 

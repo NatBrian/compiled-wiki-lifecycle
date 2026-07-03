@@ -11,7 +11,7 @@ from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 P5 = HERE                                          # bundled repo: no nested code/, scripts live here
-CODE = os.path.dirname(os.path.dirname(HERE))      # .../llm-wiki/code
+CODE = os.path.dirname(os.path.dirname(HERE))      # .../compiled-wiki-lifecycle/code
 sys.path.insert(0, os.path.join(CODE, "shared"))   # oai_client/maintain/certify/stats/currency/data
 sys.path.insert(0, HERE)
 from p5_stream import stream_lcb

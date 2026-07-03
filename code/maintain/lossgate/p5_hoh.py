@@ -20,8 +20,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 P5 = HERE                                          # bundled repo: no nested code/, scripts live here
-CODE = os.path.dirname(os.path.dirname(HERE))      # .../llm-wiki/code
-ROOT = os.path.dirname(CODE)                       # .../llm-wiki (repo root)
+CODE = os.path.dirname(os.path.dirname(HERE))      # .../compiled-wiki-lifecycle/code
+ROOT = os.path.dirname(CODE)                       # .../compiled-wiki-lifecycle (repo root)
 sys.path.insert(0, os.path.join(CODE, "shared"))   # oai_client/maintain/certify/stats/currency/data
 P2 = os.path.join(CODE, "certify", "contract")     # certify stage data assets (e5_data.json, results_e1.json)
 from oai_client import VLLM
