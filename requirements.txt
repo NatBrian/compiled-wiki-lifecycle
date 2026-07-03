@@ -1,0 +1,21 @@
+# Consolidated dependencies across all four stages. Not every stage needs every
+# package below — see docs/REPRODUCE.md and each code/<stage>/README.md for
+# which subset a given experiment actually requires.
+
+openai>=1.0          # OpenAI-compatible client, used against local vLLM servers
+requests
+numpy
+scipy
+scikit-learn
+matplotlib
+pandas
+datasets              # HuggingFace datasets (HoH-QAs)
+sentence-transformers # embedding similarity (resolver, membership gate cone check)
+transformers
+rank_bm25
+
+# Stage-specific (install only what you need):
+# mem0ai==0.1.118          # code/retract/agent-memory/
+# chromadb                 # code/retract/agent-memory/ (mem0's default vector store)
+# lightrag-hku              # code/compile/ (LightRAG baseline)
+# raptor-py                 # code/compile/ (RAPTOR baseline) — original setup used a source checkout, see code/compile/README.md

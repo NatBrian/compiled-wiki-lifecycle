@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+venvs/
+
+# Model weights / checkpoints (regenerate via training scripts, not vendored)
+*.safetensors
+*.pt
+*.bin
+checkpoint-*/
+
+# Logs / run artifacts
+logs/
+*.log
+*.pid
+*.out
+
+# LaTeX build artifacts
+paper/**/*.aux
+paper/**/*.bbl
+paper/**/*.blg
+paper/**/*.log
+paper/**/*.out
+paper/**/*.toc
+paper/**/*.fls
+paper/**/*.fdb_latexmk
+paper/**/*.synctex.gz
+
+# Large raw dataset dumps (download via docs/REPRODUCE.md instead)
+data/raw/
+*.jsonl.gz
+
+# OS
+.DS_Store
