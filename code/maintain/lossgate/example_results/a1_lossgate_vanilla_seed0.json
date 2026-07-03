@@ -1,0 +1,544 @@
+{
+ "config": {
+  "arm": "lossgate_vanilla",
+  "tau": 0,
+  "maintainer_model": null,
+  "base_model": "qwen2.5-14b",
+  "data": "benchmarks/scifact-open/data",
+  "n_docs0": 200,
+  "docs_per_page": 8,
+  "batches": 12,
+  "batch_fillers": 40,
+  "replace_fillers": 1,
+  "gate_split": 0.5,
+  "split_seed": 0,
+  "track_incorp": 12,
+  "alpha": 0.05,
+  "seed": 0,
+  "workers": 4,
+  "port": 8102,
+  "cal_file": "contract/results_e1.json",
+  "max_incr": 600,
+  "out": "results/a1_lossgate_vanilla_seed0.json"
+ },
+ "cal": {
+  "k_tpr": 32,
+  "n_tpr": 40,
+  "k_fpr": 0,
+  "n_fpr": 120
+ },
+ "gate_probes": [
+  "Teaching hospitals provide better care than non-teaching hospitals.",
+  "Falsified artemisinin family drugs with no active ingredient can be life-threatening.",
+  "A deficiency of vitamin B6 increases blood levels of homocysteine.",
+  "Verbal autopsy (VA) performed well in distinguishing between different injury categories in the elderly population.",
+  "Synaptic activity enhances local synthesis of brain derived neurotrophic factor from postsynaptic dendrites.",
+  "Myelin sheaths play an important role in trophic support.",
+  "DUSP4 downregulation activates the Ras-ERK pathway",
+  "Gene expression can be highly variable across genetically identical cells.",
+  "Funding the elimination of sporadic malaria cases is a less efficient use of healthcare resources than treating other health priorities in a setting with limited resources.",
+  "Increased expression of Bcl2 is important for the maintenance and progression of tumors.",
+  "T regulatory cells (tTregs) lacking \u03b1v\u03b28 are unable to suppress pathogenic T-cell responses during active inflammation.",
+  "Long-term use of statins showed a decreased risk of gallstones followed by cholecystectomy.",
+  "Ultrafine Anaphase Bridges represent a mechanism for resolving partially-replicated stretches of DNA.",
+  "Incidence of sepsis has remained stable between 2009-2014.",
+  "C. elegans germlines lose their immortal character when nuclear RNAi is disabled.",
+  "Serotonin receptors play a role in depression",
+  "Patients in stable partnerships have a slower progression from HIV to death.",
+  "SOD1 integrates oxygen and glucose signals to repress cellular respiration.",
+  "In pediatric tissues, the dominant population of T cells are naive T cells emigrants from the thymus.",
+  "GEF-H1 activates RhoA in response to extracellular signal-regulated kinase activation.",
+  "C-Met is involved in epithelial-mesenchymal transition in tumor cells.",
+  "Polyploidization in megakaryocytes occurs in the presence of an aberrant mitosis.",
+  "All phenotypes associated with reduced IIS require the gene daf-16.",
+  "CHEK2 has a significant role in breast cancer",
+  "Bariatric surgery has a deleterious impact on mental health.",
+  "Nitric oxide (NO) can S- nitrosylate G protein-coupled receptor kinases (GRKs) to suppress their activity and block phosphorylation.",
+  "The myocardial cell lineage originally develops from cardiac progenitors of mesodermal origin.",
+  "Satellite cell dysfunction is not a key factor in sarcopenia development.",
+  "A country's Vaccine Alliance (GAVI) eligibility is associated with accelerated adoption of the Hub vaccine.",
+  "Electrophysiological changes in motor neurons have been observed in patients with amyotrophic lateral sclerosis.",
+  "Choice of specialty is not influenced by debt accrued from medical training.",
+  "Somatic missense mutations in NT5C2 are associated with relapse of acute lymphoblastic leukemia.",
+  "Alirocumab treatment increases apo(a) fractional clearance rate.",
+  "The 7.5% 10-year Atherosclerotic cardiovascular disease risk threshold strategy for initiating statin therapy is more cost-effective than the 10% risk threshold strategy.",
+  "Intramembrane cleavage by SPP helps facilitate in the degradation of proteins with a complex membrane orientation.",
+  "BRCA 1 mutation carriers' risk of breast and ovarian cancer  is not influence by the location of the mutation.",
+  "Motor neurons from patients with amyotrophic lateral sclerosis have electrophysiological changes relative to healthy patients.",
+  "Deficiency of Tetraspanin-3 causes impaired stem cell-renewal and disease propagation."
+ ],
+ "valid_probes": [
+  "Obesity decreases life expectancy.",
+  "Rapamycin treatment raises G-CSF levels.",
+  "Golli-deficient T-cells are hyper proliferative in initial clonal expansion.",
+  "IFI16 promotes STING phosphorylation and translocation, resulting in elevated activation of STING induced by cGAMP.",
+  "Transplanted human glial progenitor cells can form a neural network with host animals' neurons.",
+  "The phosphorylation of Drp1 at S616 site promotes its mitochondrial translocation when activated by Ca 2+ /calmodulin-dependent kinase II (CaMKII).",
+  "Polyglutamine binding protein 1 (PQBP1) is the co-receptor of HIV-DNA to trigger cell-autonomous antiviral responses.",
+  "Colloid exposure causes morbidity.",
+  "Patients with panic anxiety show increased CSF levels of hypocretin.",
+  "Tuberculosis incidence is correlated with residential crowding in the UK.",
+  "Autophagy deficiency in the liver protects from insulin resistance.",
+  "Normal granulomas formed in the absence of TNF-\u2423 despite increased bacterial growth.",
+  "Radiographic verified pneumonia predictions are improved by the combination of physical examinations with C-reactive protein values.",
+  "Delayed sleep phase disorder is associated with a dominant coding variation the core circadian clock gene CRY1.",
+  "Near-infrared wavelengths increase penetration depth in fiberoptic confocal microscopy.",
+  "Genome size differences in rice are explained by LTR retrotransposon expansion.",
+  "Adult tissue-resident macrophages possess a self-renewing capacity.",
+  "Low saturated fat diets do not have adverse effects on growth or development of infants.",
+  "Tet enzymes activate microRNAs required for iPSC derivation.",
+  "Notch signalling can occur between tumor cells and stromal cells.",
+  "High cardiopulmonary fitness causes decreased mortality rate.",
+  "Piezo1 channels are sensors for cell crowding in epithelial cells.",
+  "Having a main partner increases survival rates in HIV patients.",
+  "V-9302 causes antitumor responses by increasing cell death and oxidative stress.",
+  "Adult tissue-resident macrophages are maintained independent of circulating monocytes.",
+  "Risedronate reduces risk of vertebral and non-vertebral fractures.",
+  "There is a neuroprotective effect of Trpm4 inhibition in mice and rats.",
+  "High methylation levels within individual DNA molecules correlates with high nucleosome occupancy across species.",
+  "Physical activity levels have been associated with the differences in VO2max between black and white youth.",
+  "Pseudoknots alter gene expression by inducing ribosomal frameshifts in viruses.",
+  "Some countries have achieved the goal of eradicting malaria.",
+  "Hypertension can be accurately diagnosed with ambulatory blood pressure monitoring.",
+  "The PDPN gene activates the C-type lectin receptor (CLEC-2).",
+  "Nrde-3 facilitates heritable silencing in C. elegans by transporting secondary siRNAs to the nucleus.",
+  "Supracellular actomyosin structures are found at boundaries in Drosophila wing imaginal discs.",
+  "Pyridostatin increases telomere fragility in BRCA2-deficient cells.",
+  "CRY proteins mediate light signal transduction."
+ ],
+ "timeline": [
+  {
+   "t": 0,
+   "gate": {
+    "raw": 0.3947,
+    "corrected": 0.4934,
+    "lcb": 0.2221,
+    "k": 15,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.3243,
+    "corrected": 0.4054,
+    "lcb": 0.1552,
+    "k": 12,
+    "n": 37
+   },
+   "b_t": 0.0,
+   "b_t_naive": 0.0,
+   "n_committed": 0,
+   "n_rolled": 0,
+   "incorp_rate": null,
+   "store_words": 6707,
+   "gen_calls": {
+    "build": 25,
+    "maint": 0,
+    "gate_judge": 38,
+    "audit_judge": 37
+   }
+  },
+  {
+   "t": 1,
+   "gate": {
+    "raw": 0.3947,
+    "corrected": 0.4934,
+    "lcb": 0.2221,
+    "k": 15,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.3243,
+    "corrected": 0.4054,
+    "lcb": 0.1552,
+    "k": 12,
+    "n": 37
+   },
+   "b_t": 0.2263,
+   "b_t_naive": 0.181,
+   "destroyed_gate": 0,
+   "n_conf_prev": 15,
+   "n_new_docs": 40,
+   "n_changed": 15,
+   "n_committed": 39,
+   "n_rolled": 1,
+   "incorp_rate": 0.5833,
+   "store_words": 8249,
+   "gen_calls": {
+    "build": 25,
+    "maint": 16,
+    "gate_judge": 130,
+    "audit_judge": 86
+   }
+  },
+  {
+   "t": 2,
+   "gate": {
+    "raw": 0.3947,
+    "corrected": 0.4934,
+    "lcb": 0.2221,
+    "k": 15,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.2973,
+    "corrected": 0.3716,
+    "lcb": 0.1316,
+    "k": 11,
+    "n": 37
+   },
+   "b_t": 0.2263,
+   "b_t_naive": 0.181,
+   "destroyed_gate": 0,
+   "n_conf_prev": 15,
+   "n_new_docs": 40,
+   "n_changed": 15,
+   "n_committed": 33,
+   "n_rolled": 7,
+   "incorp_rate": 0.4167,
+   "store_words": 8767,
+   "gen_calls": {
+    "build": 25,
+    "maint": 32,
+    "gate_judge": 222,
+    "audit_judge": 135
+   }
+  },
+  {
+   "t": 3,
+   "gate": {
+    "raw": 0.4211,
+    "corrected": 0.5263,
+    "lcb": 0.2474,
+    "k": 16,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.3243,
+    "corrected": 0.4054,
+    "lcb": 0.1552,
+    "k": 12,
+    "n": 37
+   },
+   "b_t": 0.2263,
+   "b_t_naive": 0.181,
+   "destroyed_gate": 0,
+   "n_conf_prev": 15,
+   "n_new_docs": 40,
+   "n_changed": 15,
+   "n_committed": 40,
+   "n_rolled": 0,
+   "incorp_rate": 0.1667,
+   "store_words": 9013,
+   "gen_calls": {
+    "build": 25,
+    "maint": 47,
+    "gate_judge": 314,
+    "audit_judge": 184
+   }
+  },
+  {
+   "t": 4,
+   "gate": {
+    "raw": 0.4211,
+    "corrected": 0.5263,
+    "lcb": 0.2474,
+    "k": 16,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.2973,
+    "corrected": 0.3716,
+    "lcb": 0.1316,
+    "k": 11,
+    "n": 37
+   },
+   "b_t": 0.2134,
+   "b_t_naive": 0.1707,
+   "destroyed_gate": 0,
+   "n_conf_prev": 16,
+   "n_new_docs": 40,
+   "n_changed": 13,
+   "n_committed": 30,
+   "n_rolled": 10,
+   "incorp_rate": 0.25,
+   "store_words": 9077,
+   "gen_calls": {
+    "build": 25,
+    "maint": 63,
+    "gate_judge": 402,
+    "audit_judge": 233
+   }
+  },
+  {
+   "t": 5,
+   "gate": {
+    "raw": 0.4211,
+    "corrected": 0.5263,
+    "lcb": 0.2474,
+    "k": 16,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.2973,
+    "corrected": 0.3716,
+    "lcb": 0.1316,
+    "k": 11,
+    "n": 37
+   },
+   "b_t": 0.2134,
+   "b_t_naive": 0.1707,
+   "destroyed_gate": 0,
+   "n_conf_prev": 16,
+   "n_new_docs": 40,
+   "n_changed": 19,
+   "n_committed": 40,
+   "n_rolled": 0,
+   "incorp_rate": 0.0833,
+   "store_words": 9430,
+   "gen_calls": {
+    "build": 25,
+    "maint": 82,
+    "gate_judge": 500,
+    "audit_judge": 282
+   }
+  },
+  {
+   "t": 6,
+   "gate": {
+    "raw": 0.4211,
+    "corrected": 0.5263,
+    "lcb": 0.2474,
+    "k": 16,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.3243,
+    "corrected": 0.4054,
+    "lcb": 0.1552,
+    "k": 12,
+    "n": 37
+   },
+   "b_t": 0.2134,
+   "b_t_naive": 0.1707,
+   "destroyed_gate": 0,
+   "n_conf_prev": 16,
+   "n_new_docs": 40,
+   "n_changed": 14,
+   "n_committed": 33,
+   "n_rolled": 7,
+   "incorp_rate": 0.0833,
+   "store_words": 9460,
+   "gen_calls": {
+    "build": 25,
+    "maint": 98,
+    "gate_judge": 588,
+    "audit_judge": 331
+   }
+  },
+  {
+   "t": 7,
+   "gate": {
+    "raw": 0.4211,
+    "corrected": 0.5263,
+    "lcb": 0.2474,
+    "k": 16,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.3514,
+    "corrected": 0.4392,
+    "lcb": 0.1795,
+    "k": 13,
+    "n": 37
+   },
+   "b_t": 0.2134,
+   "b_t_naive": 0.1707,
+   "destroyed_gate": 0,
+   "n_conf_prev": 16,
+   "n_new_docs": 40,
+   "n_changed": 15,
+   "n_committed": 32,
+   "n_rolled": 8,
+   "incorp_rate": 0.3333,
+   "store_words": 9392,
+   "gen_calls": {
+    "build": 25,
+    "maint": 117,
+    "gate_judge": 684,
+    "audit_judge": 380
+   }
+  },
+  {
+   "t": 8,
+   "gate": {
+    "raw": 0.4211,
+    "corrected": 0.5263,
+    "lcb": 0.2474,
+    "k": 16,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.3243,
+    "corrected": 0.4054,
+    "lcb": 0.1552,
+    "k": 12,
+    "n": 37
+   },
+   "b_t": 0.2134,
+   "b_t_naive": 0.1707,
+   "destroyed_gate": 0,
+   "n_conf_prev": 16,
+   "n_new_docs": 40,
+   "n_changed": 13,
+   "n_committed": 33,
+   "n_rolled": 7,
+   "incorp_rate": 0.3333,
+   "store_words": 9460,
+   "gen_calls": {
+    "build": 25,
+    "maint": 135,
+    "gate_judge": 782,
+    "audit_judge": 429
+   }
+  },
+  {
+   "t": 9,
+   "gate": {
+    "raw": 0.4211,
+    "corrected": 0.5263,
+    "lcb": 0.2474,
+    "k": 16,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.3514,
+    "corrected": 0.4392,
+    "lcb": 0.1795,
+    "k": 13,
+    "n": 37
+   },
+   "b_t": 0.2134,
+   "b_t_naive": 0.1707,
+   "destroyed_gate": 0,
+   "n_conf_prev": 16,
+   "n_new_docs": 40,
+   "n_changed": 17,
+   "n_committed": 35,
+   "n_rolled": 5,
+   "incorp_rate": 0.1667,
+   "store_words": 9556,
+   "gen_calls": {
+    "build": 25,
+    "maint": 155,
+    "gate_judge": 890,
+    "audit_judge": 478
+   }
+  },
+  {
+   "t": 10,
+   "gate": {
+    "raw": 0.4211,
+    "corrected": 0.5263,
+    "lcb": 0.2474,
+    "k": 16,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.3514,
+    "corrected": 0.4392,
+    "lcb": 0.1795,
+    "k": 13,
+    "n": 37
+   },
+   "b_t": 0.2134,
+   "b_t_naive": 0.1707,
+   "destroyed_gate": 0,
+   "n_conf_prev": 16,
+   "n_new_docs": 40,
+   "n_changed": 17,
+   "n_committed": 34,
+   "n_rolled": 6,
+   "incorp_rate": 0.1667,
+   "store_words": 9527,
+   "gen_calls": {
+    "build": 25,
+    "maint": 176,
+    "gate_judge": 996,
+    "audit_judge": 527
+   }
+  },
+  {
+   "t": 11,
+   "gate": {
+    "raw": 0.4211,
+    "corrected": 0.5263,
+    "lcb": 0.2474,
+    "k": 16,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.3243,
+    "corrected": 0.4054,
+    "lcb": 0.1552,
+    "k": 12,
+    "n": 37
+   },
+   "b_t": 0.2134,
+   "b_t_naive": 0.1707,
+   "destroyed_gate": 0,
+   "n_conf_prev": 16,
+   "n_new_docs": 40,
+   "n_changed": 16,
+   "n_committed": 29,
+   "n_rolled": 11,
+   "incorp_rate": 0.0833,
+   "store_words": 9536,
+   "gen_calls": {
+    "build": 25,
+    "maint": 196,
+    "gate_judge": 1100,
+    "audit_judge": 576
+   }
+  },
+  {
+   "t": 12,
+   "gate": {
+    "raw": 0.4211,
+    "corrected": 0.5263,
+    "lcb": 0.2474,
+    "k": 16,
+    "n": 38
+   },
+   "valid": {
+    "raw": 0.3243,
+    "corrected": 0.4054,
+    "lcb": 0.1552,
+    "k": 12,
+    "n": 37
+   },
+   "b_t": 0.2134,
+   "b_t_naive": 0.1707,
+   "destroyed_gate": 0,
+   "n_conf_prev": 16,
+   "n_new_docs": 40,
+   "n_changed": 16,
+   "n_committed": 35,
+   "n_rolled": 5,
+   "incorp_rate": 0.1667,
+   "store_words": 9481,
+   "gen_calls": {
+    "build": 25,
+    "maint": 214,
+    "gate_judge": 1192,
+    "audit_judge": 625
+   }
+  }
+ ],
+ "gen_calls": {
+  "build": 25,
+  "maint": 214,
+  "gate_judge": 1192,
+  "audit_judge": 625
+ },
+ "n_calls": 2200,
+ "minutes": 14.0
+}

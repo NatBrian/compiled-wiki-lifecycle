@@ -1,0 +1,184 @@
+{
+ "a1_ci": {
+  "conservative": {
+   "n_seeds": 7,
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "R12_mean": 0.2655,
+   "R12_std": 0.1044,
+   "incorp_mean": 0.0238,
+   "incorp_std": 0.0376,
+   "rolled_mean": 0.0
+  },
+  "lossgate_conservative": {
+   "n_seeds": 7,
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "R12_mean": 0.415,
+   "R12_std": 0.0968,
+   "incorp_mean": 0.0714,
+   "incorp_std": 0.0694,
+   "rolled_mean": 3.4286
+  },
+  "lossgate_vanilla": {
+   "n_seeds": 7,
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "R12_mean": 0.4054,
+   "R12_std": 0.0938,
+   "incorp_mean": 0.1429,
+   "incorp_std": 0.0967,
+   "rolled_mean": 8.8571
+  },
+  "vanilla": {
+   "n_seeds": 7,
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "R12_mean": 0.2848,
+   "R12_std": 0.0506,
+   "incorp_mean": 0.0952,
+   "incorp_std": 0.0937,
+   "rolled_mean": 0.0
+  }
+ },
+ "e2_rescue": {
+  "lossgate_vanilla": [
+   {
+    "seed": 0,
+    "gate_n": 120,
+    "L0": 0.875,
+    "stream_lcb": [
+     0.875,
+     0.8396,
+     0.7906,
+     0.7341,
+     0.6722,
+     0.606,
+     0.5363,
+     0.4638,
+     0.3886,
+     0.3113,
+     0.232,
+     0.1509,
+     0.0681
+    ],
+    "realized": [
+     0.875,
+     0.875,
+     0.875,
+     0.8667,
+     0.8667,
+     0.8667,
+     0.8667,
+     0.8667,
+     0.8667,
+     0.8667,
+     0.8667,
+     0.8667,
+     0.8667
+    ],
+    "nonvacuous_batches": 13,
+    "stream_valid": true,
+    "final_stream_lcb": 0.0681,
+    "final_realized": 0.8667,
+    "mean_bt": 0
+   },
+   {
+    "seed": 1,
+    "gate_n": 120,
+    "L0": 0.8833,
+    "stream_lcb": [
+     0.8833,
+     0.8503,
+     0.8044,
+     0.7512,
+     0.6933,
+     0.6313,
+     0.5661,
+     0.4982,
+     0.4279,
+     0.3556,
+     0.2813,
+     0.2054,
+     0.128
+    ],
+    "realized": [
+     0.8833,
+     0.8833,
+     0.8833,
+     0.8833,
+     0.875,
+     0.8833,
+     0.8833,
+     0.875,
+     0.8667,
+     0.8667,
+     0.8667,
+     0.8667,
+     0.8583
+    ],
+    "nonvacuous_batches": 13,
+    "stream_valid": true,
+    "final_stream_lcb": 0.128,
+    "final_realized": 0.8583,
+    "mean_bt": 0
+   }
+  ]
+ },
+ "e4_lora": {
+  "lossgate_vanilla_lora": {
+   "R12": 0.5743,
+   "incorp": 0.0,
+   "rolled": 0,
+   "coverage": 1.0
+  },
+  "vanilla_lora": {
+   "R12": 0.4054,
+   "incorp": 0.0,
+   "rolled": 0,
+   "coverage": null
+  }
+ },
+ "e5_tau": {
+  "tau1": {
+   "R12": 0.1351,
+   "incorp": 0.0,
+   "rolled": 0,
+   "b_t": 0.4913
+  },
+  "tau2": {
+   "R12": 0.3041,
+   "incorp": 0.0,
+   "rolled": 0,
+   "b_t": 0.4913
+  }
+ }
+}
