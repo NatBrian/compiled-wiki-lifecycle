@@ -1,0 +1,22 @@
+{
+  "R": 30,
+  "hash": {
+    "mean_ms": 0.004,
+    "median_ms": 0.003,
+    "p90_ms": 0.005,
+    "n": 30
+  },
+  "cone": {
+    "mean_ms": 30.606,
+    "median_ms": 29.985,
+    "p90_ms": 32.15,
+    "n": 30
+  },
+  "nli": {
+    "mean_ms": 40.58,
+    "median_ms": 40.395,
+    "p90_ms": 41.238,
+    "n": 30
+  },
+  "note": "weight-free tax per write-hook: hash ~free, cone = 1 CPU embed, nli = 1 vLLM call; A3-=hash+cone is the cheap default, full A3 adds nli"
+}

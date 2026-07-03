@@ -1,0 +1,26 @@
+{
+  "n_scored": 249,
+  "k_pct": 0.2,
+  "model": "Qwen/Qwen3-14B",
+  "arms": {
+    "A1_auto": {
+      "mink_mean": -0.156,
+      "minkpp_mean": 3.2647
+    },
+    "A3_auto": {
+      "mink_mean": -8.0895,
+      "minkpp_mean": -2.2386
+    },
+    "A4": {
+      "mink_mean": -7.9896,
+      "minkpp_mean": -2.2334
+    }
+  },
+  "MIA_AUC": {
+    "A1_vs_A4_mink": 0.9907259560329672,
+    "A1_vs_A4_minkpp": 0.993758165190884,
+    "A3_vs_A4_mink": 0.4922420606119256,
+    "A3_vs_A4_minkpp": 0.4999193561394171
+  },
+  "interpretation": "A1 vs oracle AUC>>0.5 = leaked store is MIA-detectable; A3 vs oracle AUC~0.5 = gated store indistinguishable from never-ingested"
+}

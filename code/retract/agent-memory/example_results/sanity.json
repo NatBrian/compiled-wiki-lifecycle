@@ -1,0 +1,10 @@
+{
+  "n_gold": 6,
+  "hash_accuracy": 1.0,
+  "cone_accuracy": 1.0,
+  "cone_tau": 0.55,
+  "cone_FPR": 0.0,
+  "em_normalization_invariant": true,
+  "scorer_neq_gate_decoupled": true,
+  "PASS": true
+}

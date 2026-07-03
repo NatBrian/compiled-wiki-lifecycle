@@ -1,0 +1,120 @@
+{
+  "delta": 0.05,
+  "B_boot": 10000,
+  "B1": {
+    "source": "b1_ladder.json",
+    "n_facts": 221,
+    "arms": [
+      "A0",
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ],
+    "per_arm": {
+      "A0": {
+        "RSR_gee": NaN,
+        "RSR_raw": 1.0,
+        "n": 221
+      },
+      "A1": {
+        "RSR_gee": NaN,
+        "RSR_raw": 0.9907,
+        "n": 215
+      },
+      "A2": {
+        "RSR_gee": NaN,
+        "RSR_raw": 0.9904,
+        "n": 208
+      },
+      "A3": {
+        "RSR_gee": NaN,
+        "RSR_raw": 0.0,
+        "n": 193
+      },
+      "A4": {
+        "RSR_gee": NaN,
+        "RSR_raw": 0.0,
+        "n": 189
+      }
+    },
+    "ICC": 0.0,
+    "DEFF": 1.0,
+    "m_bar": 4.64,
+    "n_obs": 1026,
+    "n_eff": 1026.0,
+    "discrimination": {
+      "comparison": "A2 vs A3",
+      "rd_point": 0.9896,
+      "rd_95ci_cluster_boot": [
+        0.9741,
+        1.0
+      ],
+      "ci_excludes_0": true
+    },
+    "equivalence_to_oracle": {
+      "comparison": "A3 vs A4",
+      "label": "gated rung equivalent to never-ingested oracle",
+      "rd_point": 0.0,
+      "rd_90ci_cluster_boot": [
+        0.0,
+        0.0
+      ],
+      "equivalence_margin": 0.05,
+      "n_pairs": 189,
+      "TOST_equivalent": true
+    }
+  },
+  "AUTO": {
+    "source": "e0b_auto.json",
+    "n_facts": 250,
+    "arms": [
+      "A1_auto",
+      "A3_auto",
+      "A4"
+    ],
+    "per_arm": {
+      "A1_auto": {
+        "RSR_gee": 0.984,
+        "RSR_raw": 0.984,
+        "n": 250
+      },
+      "A3_auto": {
+        "RSR_gee": 0.0,
+        "RSR_raw": 0.0,
+        "n": 250
+      },
+      "A4": {
+        "RSR_gee": 0.0,
+        "RSR_raw": 0.0,
+        "n": 249
+      }
+    },
+    "ICC": 0.0,
+    "DEFF": 1.0,
+    "m_bar": 3.0,
+    "n_obs": 749,
+    "n_eff": 749.0,
+    "discrimination": {
+      "comparison": "A1_auto vs A3_auto",
+      "rd_point": 0.984,
+      "rd_95ci_cluster_boot": [
+        0.968,
+        0.996
+      ],
+      "ci_excludes_0": true
+    },
+    "equivalence_to_oracle": {
+      "comparison": "A3_auto vs A4",
+      "label": "gated rung equivalent to never-ingested oracle",
+      "rd_point": 0.0,
+      "rd_90ci_cluster_boot": [
+        0.0,
+        0.0
+      ],
+      "equivalence_margin": 0.05,
+      "n_pairs": 249,
+      "TOST_equivalent": true
+    }
+  }
+}

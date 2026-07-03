@@ -1,0 +1,8 @@
+{
+  "n": 250,
+  "pool_size": 463,
+  "recovery_plaintext_log": 1.0,
+  "recovery_salted_hash": 0.0,
+  "recovery_embedding_cone_with_candidate_pool": 1.0,
+  "note": "cone recovery here assumes the strong attacker who already holds a candidate pool containing the true value (upper bound). Without the pool, embedding inversion (vec2text) is required = future work. Hash is one-way; plaintext log is the unsafe baseline we beat."
+}
