@@ -20,12 +20,12 @@ immune, on real text.
 - Compile wiki pages from a 75-claim tracked subset of SciFact-Open (`SUPPORT`
   claims) mixed into ~1500 filler PubMed abstracts.
 - Stream new documents in, repeatedly **rewrite** each page ("update facts;
-  newer supersedes" — the literal policy text of the Hermes llm-wiki
+  newer supersedes", the literal policy text of the Hermes llm-wiki
   SKILL.md), and re-check whether each of the 75 tracked claims is still
   judged `supported` by its page after each round.
 - Two arms:
-  - `plain` — rewrite only.
-  - `harness` — rewrite + a check-and-rollback wrapper (revert a rewrite if
+  - `plain`, rewrite only.
+  - `harness`, rewrite + a check-and-rollback wrapper (revert a rewrite if
     it stops supporting the tracked claim).
 - A **fresh-rebuild control**: at the end, throw away the rewrite history and
   recompile a wiki from scratch from the same current documents. The gap
@@ -35,32 +35,32 @@ immune, on real text.
 
 ## Files
 
-- `wiki_decay.py` — the experiment driver: compiles pages, streams documents,
+- `wiki_decay.py`, the experiment driver: compiles pages, streams documents,
   rewrites pages each round, re-checks tracked claims. Arms: `plain`,
   `harness`. Includes the fresh-rebuild control.
-- `build_subset.py` — builds `data/scifact_subset.json` from a local
+- `build_subset.py`, builds `data/scifact_subset.json` from a local
   SciFact-Open checkout (already run; output is committed here so the
-  experiment is self-contained — no separate download step needed).
-- `plot.py` — renders the forgetting-curve figure and prints headline numbers
+  experiment is self-contained, no separate download step needed).
+- `plot.py`, renders the forgetting-curve figure and prints headline numbers
   from a `results/*.json` file.
-- `post1_kaggle.ipynb` — a Kaggle notebook version (install → load code → run
+- `post1_kaggle.ipynb`, a Kaggle notebook version (install → load code → run
   arms → plot), for running on a free T4 GPU instead of a local machine.
-- `data/scifact_subset.json` — 75 tracked `SUPPORT` claims + ~1500 filler
+- `data/scifact_subset.json`, 75 tracked `SUPPORT` claims + ~1500 filler
   abstracts, real SciFact-Open data.
-- `requirements.txt` — Python dependencies.
-- `results/` — reference/expected output from a prior run (see "Status of the
+- `requirements.txt`, Python dependencies.
+- `results/`, reference/expected output from a prior run (see "Status of the
   included results" below): `summary.json`, `harness_large_seed0.json`,
   `plain_large_seed0.json`, `plain_small_seed0.json`.
 
-## Status of the included results — single seed, Run 2
+## Status of the included results, single seed, Run 2
 
 The `results/` files in this directory are from a single run: **seed=0**,
 retention judged by the **same model that did the rewriting**, at
 **temperature 0** (no independent judge model, no multi-seed variance
-estimate — see "Honesty notes" below).
+estimate, see "Honesty notes" below).
 
 They are **Run 2**, not the first attempt. Run 1 (not included here) had a
-bug in how the fresh-rebuild control was computed — that bug inflated
+bug in how the fresh-rebuild control was computed, that bug inflated
 `rebuild_retention` into a hollow ceiling that made rewriting look worse than
 it actually was relative to a clean rebuild. That bug is fixed in the driver
 copied here; the numbers in `results/summary.json` reflect the corrected
@@ -73,7 +73,7 @@ computation:
 | `plain_small` | 22.7 | 2.7 | 49.3 |
 
 (units: number of the 75 tracked claims still judged `supported`, i.e.
-retention counts, not yet normalized to a fraction — see `plot.py` for the
+retention counts, not yet normalized to a fraction, see `plot.py` for the
 normalized/percentage version.) In all three arms, `rebuild` retention is
 well above the rewrite-degraded `rT`, i.e. iterated rewriting measurably
 loses information beyond what a fresh compile from the same documents would
@@ -81,7 +81,7 @@ lose.
 
 ## How to run
 
-### Run with Kilo Code (API — no GPU needed), recommended
+### Run with Kilo Code (API, no GPU needed), recommended
 Uses an OpenAI-compatible gateway with your own key, so it runs on any
 machine (laptop, Kaggle CPU) with no GPU:
 ```bash
@@ -95,18 +95,18 @@ python wiki_decay.py --backend api --model 'poolside/laguna-xs.2:free' --arm pla
 python plot.py
 ```
 Notes carried over from the original development README:
-- **Set `LLM_BASE_URL` explicitly** — a stale shell env var pointing
+- **Set `LLM_BASE_URL` explicitly**, a stale shell env var pointing
   elsewhere will hijack the call and produce a 401.
 - **Free-tier only:** $0-balance Kilo accounts get 402 on paid models; use a
   `:free` model id. Free models tend to be reasoning models (~11-20s/call),
   so a 12-round run is roughly 2-3 hours; try `--rounds 8` for a faster first
   pass.
-- Works with any OpenAI-compatible provider — just change `LLM_BASE_URL` +
+- Works with any OpenAI-compatible provider, just change `LLM_BASE_URL` +
   `--model` (Groq, OpenRouter, Google AI Studio, etc.).
 
 Approximate call budget (batched judging is on by default): `plain` (12
 rounds, 75 claims) ~420 calls, `harness` ~780 calls, `plain` small-model
-~420 calls — roughly 1,200 calls total for the core chart (plain + harness).
+~420 calls, roughly 1,200 calls total for the core chart (plain + harness).
 
 ### Run on Kaggle (local GPU, no API key)
 1. New Notebook -> Settings: GPU T4 x2 (or P100), Internet ON.
@@ -116,13 +116,13 @@ rounds, 75 claims) ~420 calls, `harness` ~780 calls, `plain` small-model
 3. Run all cells. Minimum-viable = `plain` + `harness` (large model) +
    rebuild control -> the forgetting-curve chart.
 4. Optional second session: the small-model arm.
-5. Outputs land in `/kaggle/working/results` and `/kaggle/working/figures` —
+5. Outputs land in `/kaggle/working/results` and `/kaggle/working/figures`,
    download from the Output tab.
 
 Time/VRAM: a 4-bit ~8B model is roughly 5GB VRAM (a 14B model roughly 9GB).
 One arm of 12 rounds x 75 claims takes roughly 1-2 hours on a T4.
 Per-round checkpointing means a session cutoff (e.g. Kaggle's 12h limit)
-won't lose progress — resume in a new session.
+won't lose progress, resume in a new session.
 
 ### Run locally (if you have a GPU)
 ```bash
@@ -154,15 +154,15 @@ python plot.py
   experiment automates the *operator* (the loop that applies the policy each
   round) in a fixed, reproducible driver; it does not alter the policy text.
 - Retention is judged by the **same model** that did the rewriting, at
-  temperature 0 — this is a same-model self-judge, not an independent judge
+  temperature 0, this is a same-model self-judge, not an independent judge
   model. A judge-free string-match replication (e.g. against HoH-style
   ground truth) would be a natural follow-up to confirm the measured loss
   isn't a judge-consistency artifact; it has not been run for this
   experiment.
-- **Single seed (seed=0).** No multi-seed variance estimate is included —
+- **Single seed (seed=0).** No multi-seed variance estimate is included,
   the numbers in `results/` should be read as one run, not a distribution.
 - Real (non-synthetic) data means the underlying model may recall a dropped
-  fact from its own pretraining, which can *mask* measured loss — so the
+  fact from its own pretraining, which can *mask* measured loss, so the
   measured decay here is best read as a **conservative lower bound** on
   actual information loss from rewriting.
 - Decay magnitude is model- and dataset-dependent; report the model and seed

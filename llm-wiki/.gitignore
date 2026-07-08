@@ -1,0 +1,24 @@
+# State and lock files
+.llmwiki/
+
+# Generated wiki pages, index, and queries
+wiki/concepts/
+wiki/queries/
+wiki/index.md
+
+# Activity log
+log.md
+
+# Test source files
+sources/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+*.egg
+.venv/
+venv/
+
+# Node.js (legacy from TypeScript reference)
+package-lock.json

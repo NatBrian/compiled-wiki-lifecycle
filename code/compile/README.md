@@ -3,7 +3,7 @@
 This directory holds the driver code for the **compile** stage of the pipeline:
 turning a raw, growing corpus of evidence documents into a queryable knowledge
 source, and comparing that against six baseline "arms" on questions whose
-correct answer changes over time (facts get superseded — a later document
+correct answer changes over time (facts get superseded, a later document
 overwrites an earlier one on the same underlying concept).
 
 ## The six arms
@@ -15,13 +15,13 @@ a small isolated context):
 
 | Arm | What it does |
 |---|---|
-| `closed_book` | Parametric-only baseline — no retrieval context at all. |
+| `closed_book` | Parametric-only baseline, no retrieval context at all. |
 | `full_dump_cic` | LOFT-style Corpus-in-Context: every doc, ID-tagged, dumped into a long-context reader (Qwen3-Coder-30B, 256K ctx). No curation. |
 | `vector_rag` | Standard dense (bge) retrieval, top-k over the pooled corpus. Stale and current versions of a fact coexist and compete at retrieval time. |
 | `lightrag` | Third-party graph-RAG system ([LightRAG](https://github.com/HKUDS/LightRAG)), run faithfully against its own ingestion/query API. |
 | `raptor` | Third-party hierarchical-summarization retriever ([RAPTOR](https://github.com/parthsarthi03/raptor)), run faithfully against its own API. |
 | `wiki_karpathy` | The compiled-wiki arm: one page per concept, overwritten in ingestion order so only the current fact is ever on the page (Karpathy "LLM wiki" pattern). FTS5 keyword navigation, no embeddings. |
-| `resolve_free` | The label-free supersession **resolver** (`src/resolver.py`) bolted onto the `vector_rag` retriever output: clusters retrieved chunks by *text similarity* (not a gold concept id) and keeps the latest-*ingested* member of each cluster (not a gold version tag). This is the deployable lever — it needs no oracle metadata, so it can sit on top of any retriever. |
+| `resolve_free` | The label-free supersession **resolver** (`src/resolver.py`) bolted onto the `vector_rag` retriever output: clusters retrieved chunks by *text similarity* (not a gold concept id) and keeps the latest-*ingested* member of each cluster (not a gold version tag). This is the deployable lever, it needs no oracle metadata, so it can sit on top of any retriever. |
 
 There is also a `mem0` / `graphiti` agent-memory arm (`run_mem0.py`,
 `run_graphiti.py`) and a per-item (non-pooled) HoH variant of each arm
@@ -57,7 +57,7 @@ code/compile/
   src/
     resolver.py          the label-free supersession resolver (P2): clusters
                          retrieved chunks by embedding similarity and keeps
-                         the latest-ingested member per cluster — no gold
+                         the latest-ingested member per cluster, no gold
                          concept id, no gold version tag
   scripts/               certificate / analysis / figure scripts (post-hoc,
                          run over the results/*.json produced by real/)
@@ -69,11 +69,11 @@ code/compile/
     fig_certificate.py     renders the certificate figure
     audit_numbers.py       cross-checks headline numbers back to raw results
   external-validation/   independent replication on a different dataset with
-                         a different (real, published) tool — see its own README
+                         a different (real, published) tool, see its own README
 ```
 
 Everything under `real/` and `src/` is hand-written for this project. It is
-**not** a vendored copy — the actual third-party libraries it calls
+**not** a vendored copy, the actual third-party libraries it calls
 (`lightrag-hku`, `raptor`, `mem0`, `graphiti-core`, `sentence-transformers`,
 `datasets`, `openai`) are ordinary pip dependencies, installed into
 per-framework virtualenvs during development (not bundled in this repo; see
@@ -94,10 +94,10 @@ per-framework virtualenvs during development (not bundled in this repo; see
    export DUMP_URL=http://127.0.0.1:8102/v1
    ```
    Any server that speaks the OpenAI `chat/completions` API on those URLs
-   works — vLLM, TGI, llama.cpp server, etc. All scripts read these from the
+   works, vLLM, TGI, llama.cpp server, etc. All scripts read these from the
    environment with the above as defaults.
 
-2. **Dataset** — auto-downloads on first run via HuggingFace `datasets`:
+2. **Dataset**, auto-downloads on first run via HuggingFace `datasets`:
    ```python
    datasets.load_dataset("russwest404/HoH-QAs", split="train")
    ```
@@ -111,7 +111,7 @@ per-framework virtualenvs during development (not bundled in this repo; see
    repo (they're ~850MB of vendored packages). Recreate what you need, e.g.:
    ```bash
    pip install lightrag-hku sentence-transformers openai datasets  # for the lightrag arm
-   pip install raptor-py sentence-transformers openai datasets     # for the raptor arm (TODO: confirm exact PyPI name — the
+   pip install raptor-py sentence-transformers openai datasets     # for the raptor arm (TODO: confirm exact PyPI name, the
                                                                     #   original venv installed RAPTOR from a source checkout,
                                                                     #   not necessarily this package)
    pip install mem0ai sentence-transformers                        # for the mem0 arm (TODO: confirm exact PyPI name)
@@ -138,7 +138,7 @@ real/venvs/raptor/bin/python real/pooled_raptor.py 300
 ```
 `real/pool_run.sh` wraps a set of arms in a retry-until-checkpointed loop
 (each arm checkpoints per item to `results/_ckpt_pool_<arm>.jsonl` and
-resumes on restart — the underlying host can SIGKILL a long-running process
+resumes on restart, the underlying host can SIGKILL a long-running process
 without losing progress):
 ```bash
 real/pool_run.sh 300 closed_book vector_rag wiki_karpathy resolve_free
@@ -176,5 +176,5 @@ python scripts/audit_numbers.py
 | `BENCH_STATIC` | `0` | `1` = static corpus (current-only docs, no superseded versions) |
 | `TAG_SUFFIX` | `""` | suffix appended to result tags, used for reader-size sweeps |
 
-Not every script uses every variable above — see each file's header comment
+Not every script uses every variable above, see each file's header comment
 for the specific set it reads.
