@@ -1029,29 +1029,71 @@ This is a **minimal** implementation. The following features from reference syst
 
 ## 12. Comparison with Other LLM Wikis
 
-### vs Karpathy's LLM Wiki
+A side-by-side comparison across 5 reference implementations and our minimal Python version.
 
-Karpathy's design uses a **manual cascade update** pattern, when page A changes, the LLM manually scans and updates related pages. Our design uses **deterministic interlink resolution** (regex-based wikilink detection) instead, which is faster and more predictable.
+### Page Creation (How wiki pages are made)
 
-Karpathy uses blockquote-style metadata (`> Sources: ...`) while we use YAML frontmatter (machine-parseable, supports `orphaned` flag).
+| Dimension | Karpathy Gist (idea) | karpathy-llm-wiki (Astro-Han skill) | llm-wiki-compiler (TS) | llmwiki MCP (Python) | Hermes Agent (skill) | **This project** |
+|---|---|---|---|---|---|---|
+| **Creates pages via** | LLM inline during ingest | LLM writes inline during ingest | LLM tool-call pipeline (extract→merge→generate) | LLM writes via MCP `create`/`edit`/`append` tools | LLM writes inline during ingest | LLM tool-call pipeline (extract→merge→generate) |
+| **Automatic compilation** | Yes (as part of ingest) | Yes (as part of ingest) | Yes (`llmwiki compile` with change detection) | No (relies on Claude Routines/scheduled prompts) | Yes (as part of ingest) | Yes (`llm-wiki compile` with SHA-256 change detection) |
+| **Source format** | Any (web/file/paste) | Any (web/file/paste) | Any (web, PDF, image, file) via `ingest` command | Any (PDF, Office, web, text, image) via file watcher | Any (web/file/paste) | Only `.md` files in `sources/` |
+| **Multi-source merge** | LLM decides inline | LLM decides inline | Slug-based merge with pessimistic confidence | Not automated (LLM reads both sources) | LLM decides inline | Slug-based merge with pessimistic confidence |
+| **Page kinds** | Single type | Single type | Typed (concept, entity, comparison, overview) | Single type | Typed (entities, concepts, comparisons) | Single type (concept) |
+| **Human review gate** | None | Heuristic lint | Policy-engine (candidates/ folder, approve/reject) | MCP `lint` tool | Heuristic lint | None |
+| **Seed pages** | None | None | Schema-declared, materialized on each compile | None | None | None |
 
-### vs `llm-wiki-compiler` (TypeScript by blaine-williams)
+### Query / Retrieval (How questions are answered)
 
-This Python implementation is a direct port of the TypeScript compiler's architecture. Key differences:
-- **No review/policy system** (simplified), TypeScript version has a full gate pipeline where low-confidence pages go to `.llmwiki/candidates/` for deferred approval
-- **Simpler embeddings**, missing wikilink graph expansion in retrieval (our query does wikilink expansion after page selection, but the TypeScript version does it during the embedding search)
-- **Serial batch processing**, TypeScript version uses `pLimit` for concurrent extraction
-- **Single provider model**, TypeScript supports 5+ providers (Anthropic, OpenAI, Ollama, MiniMax, GitHub Copilot)
-- **Simpler locking**, TypeScript has two-phase stale-lock reclamation; ours is basic `O_EXCL` with timeout
+| Dimension | Karpathy Gist | karpathy-llm-wiki skill | llm-wiki-compiler (TS) | llmwiki MCP (Python) | Hermes Agent skill | **This project** |
+|---|---|---|---|---|---|---|
+| **Primary retrieval** | LLM reads index.md | LLM reads index.md | Chunk-level embeddings + BM25 rerank | SQLite FTS5 full-text keyword search | LLM reads index.md | Chunk-level embeddings + BM25 rerank |
+| **Fallback method** | None | None | Page-level embeddings → LLM reads index.md | None | None | Page-level embeddings → LLM reads index.md |
+| **What LLM sees** | Full page bodies for selected pages | Full page bodies for selected pages | Full page bodies + top chunk excerpts for selected pages | Search result snippets → full page via `read` tool | Full page bodies for selected pages | Full page bodies for selected pages (NO chunk excerpts) |
+| **Embedding vectors** | No | No | Yes (Voyage/Ollama/OpenAI), JSON store | No | No | Yes (OpenAI-compatible only), JSON store |
+| **Chunk-level search** | No | No | Yes (paragraph-aligned, content-hash dedup) | Yes (~512-token, ~128-overlap, header-aware) | No | Yes (paragraph-aligned, BM25 rerank) |
+| **Graph expansion** | None | None | None (MCP context pack tool) | Reference graph (backlinks, staleness propagation) | None | Wikilink graph expansion (1 level, +3 pages) |
+| **Saved queries** | Yes (as wiki pages) | Yes (Archive feature) | Yes (wiki/queries/) | No | Yes (queries/ directory) | Yes (wiki/queries/ with --save flag) |
 
-### vs Hermes Agent (NousResearch)
+### Architecture
 
-Hermes uses explicit page management rules (merge when >50% overlap, split when >10 sections). Our design relies entirely on LLM judgment during extraction, the LLM decides whether a concept is new or should be merged.
+| Dimension | Karpathy Gist | karpathy-llm-wiki skill | llm-wiki-compiler (TS) | llmwiki MCP (Python) | Hermes Agent skill | **This project** |
+|---|---|---|---|---|---|---|
+| **Nature** | Pattern description | Agent SKILL.md (prompt-only) | TypeScript CLI + SDK + MCP server | Python MCP server + FastAPI + Chrome extension | Agent SKILL.md (prompt-only) | Python CLI tool |
+| **Storage** | Filesystem | Filesystem | Filesystem + JSON state files | SQLite/Postgres + filesystem | Filesystem | Filesystem + JSON state files |
+| **Search index** | index.md only | index.md only | embeddings.json + index.md | FTS5 virtual table | index.md only | embeddings.json + index.md |
+| **LLM ownership** | Full (LLM writes wiki, human reads) | Full (LLM writes wiki, human reads) | Full (LLM writes wiki, compiler orchestrates) | Delegated (LLM decides what to write via tools) | Full (LLM writes wiki, human reads) | Full (LLM writes wiki, pipeline orchestrates) |
+| **Locking** | None | None | File-based O_EXCL with two-phase stale reclamation | Database transaction | None | File-based O_EXCL with 30s timeout |
+| **Concurrency** | N/A (LLM decides) | N/A (LLM decides) | Batch processing with pLimit | Background tasks (watchfiles) | N/A (LLM decides) | Batch processing (serial per batch) |
 
-Hermes also uses a **SCHEMA.md** with a mandatory tag taxonomy to prevent tag sprawl. Our system lets tags be free-form.
+### Data Model
 
-### vs `llmwiki` MCP (octotools / lucasastorian)
+| Dimension | Karpathy Gist | karpathy-llm-wiki skill | llm-wiki-compiler (TS) | llmwiki MCP (Python) | Hermes Agent skill | **This project** |
+|---|---|---|---|---|---|---|
+| **Page format** | Markdown with `> Source:` header | Markdown with `## Sources` table | Markdown + YAML frontmatter | Markdown + YAML frontmatter | Markdown with `## Sources` table | Markdown + YAML frontmatter |
+| **Metadata** | Minimal (`> Source:`, `> Raw:`) | Minimal (`Source`, `Raw` fields) | Rich (title, sources, summary, kind, createdAt, updatedAt, confidence, provenanceState, contradictedBy, tags, orphaned) | Rich (title, description, date, tags via MCP auto-frontmatter) | Rich (tag taxonomy, page thresholds) | Rich (title, summary, sources, kind, createdAt, updatedAt, confidence, provenanceState, tags, orphaned) |
+| **Chunk format** | None | None | JSON ({slug, title, chunkIndex, contentHash, text, vector}) | SQLite row ({content, header_breadcrumb, page, token_count}) + FTS5 | None | JSON ({slug, title, chunkIndex, text, vector}) in embeddings.json |
+| **State persistence** | None | log.md | state.json (per-source hash, concepts, compiledAt) | SQLite document_chunks table | log.md | state.json (per-source hash, concepts, compiledAt, frozenSlugs) |
+| **Citation format** | Markdown links | Markdown links | `^[filename.md:START-END]` + frontmatter `sources` array | Footnote numbers → filename in references graph | Markdown links | `^[filename.md:START-END]` + frontmatter `sources` array |
 
-The MCP server uses a SQLite-backed vault with full-text search, citation graph propagation, and stale-page detection. It also includes a Chrome extension, web UI (Next.js), authentication system, and PDF/Office document extraction.
+### Differences vs This Project (Notable)
 
-Our filesystem approach is simpler and sufficient for individual use without server infrastructure. The MCP version is designed for multi-user, multi-workspace scenarios with Claude Desktop integration.
+| Reference | Key difference from our approach |
+|---|---|
+| **Karpathy Gist** | Pure idea description; no code, no automation. Our project is an executable implementation of his vision with formal pipeline stages and change detection. |
+| **karpathy-llm-wiki skill** | No embeddings, no deterministic link resolution — all LLM-driven. No chunking, no query tiers. Our project adds embeddings, wikilink graph expansion, and a 3-tier query pipeline. |
+| **llm-wiki-compiler (TS)** | Most similar architecture (we share the same design). Differences: TS has a review/policy gate (candidates/), concurrent extraction with pLimit, 5+ providers, typed page kinds (concept/entity/comparison), eval harness, OKF export, two-phase stale lock. Our Python version is simpler: no review gate, no page kinds, fewer providers, no eval. |
+| **llmwiki MCP (Python)** | Not a compiler — it's an infrastructure layer (MCP tools + API + auto file watcher). The LLM is expected to write pages through tools rather than a pipeline. Has SQLite/Postgres, FTS5 search, Chrome extension, PDF/Office extraction, hosted multi-user mode, reference graph with staleness propagation. Our project is compiler-first (batch compile → durable wiki), not tool-first. |
+| **Hermes Agent** | Has SCHEMA.md with mandatory tag taxonomy (prevents tag sprawl), explicit page thresholds (merge at 50% overlap, split at 10 sections/300 lines), session continuity protocol (read SCHEMA + index + log on every session), scaling rules (50/200/500 entry limits). Our project has none of these — relies entirely on LLM judgment. |
+
+### Summary
+
+| Aspect | The 5 references collectively do | This project does differently |
+|---|---|---|
+| **Ingestion** | Accept any format, auto-convert | Only `.md` files in `sources/` |
+| **Page quality** | Have review gates, lint, page typing, thresholds | No gate, single page kind, LLM-judgment-only |
+| **Query precision** | Have chunk-feeding, reference graphs, FTS5 | Full-page feeding, no chunk context for LLM |
+| **Infrastructure** | Multiple have DB backends, hosted mode, MCP, web UI | Filesystem-only, CLI-only |
+| **Persistence** | Some have SQLite FTS, citation graph, staleness tracking | JSON state, source-based orphan, frozen slugs |
+
+This project starts as a minimal viable compiler. The references show what can be added: review gates, chunk-level query feeding, reference graphs, auto-ingest for non-text formats, and DB-backed scalability.
